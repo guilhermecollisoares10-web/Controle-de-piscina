@@ -3,8 +3,8 @@
 	<head>
 		<title id="pageTitle"></title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-		<link rel="stylesheet" href="CSS.css">
-		<link rel="stylesheet" href="menuFixo.css">
+		<link rel="stylesheet" href="Bibliotecas/CSS.css">
+		<link rel="stylesheet" href="Bibliotecas/menuFixo.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 	
 	<style>
@@ -186,7 +186,7 @@
 	<div class="menu">
 		<!--<div class="zrd"><a style="font-size: 1vw;" href="zerados.html"><button class="btnz">Jogos Zerados</button></a></div>-->
 		<div class="abn"><a style="font-size: 1vw;" href="Adicionar_informação.html"><button class="btna">Adiconar Dias</button></a></div>
-		<h1 class="bar"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div class="bib">Biblioteca de Dias</div></a></h1>
+		<h1 class="bar"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div class="bib">Controle Piscina</div></a></h1>
 		<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne">Estatísticas</button></a></div>
 		<div class="menuu">
 							<button id="btnc" class="btnm"> Configurações <br><i class="material-symbols-outlined">settings</i></button>
@@ -212,6 +212,7 @@
 					<li>Ácido cianúrico medido: <span id="acCian"></span></li>
 					<li>TDS medido: <span id="TDS"></span></li>
 					<li>Turbidez medida: <span id="turbidez"></span></li>
+					<li>Observações realizadas: <span id="obs"></span></li>
 
 						<!--<ul>
 							<li><a style="font-size: 1vw;" href="Estatísticas.html">Estatísticas de Desepenho</a></li></p></li>
@@ -251,6 +252,7 @@
 
 				document.getElementById("TDS").textContent = `${dados.TDS} ppm` || "Sem clCombinadoa";
 				document.getElementById("turbidez").textContent = `${dados.turbidez} ppm` || "Sem clCombinadoa";
+				document.getElementById("obs").textContent =  dados.obs || "Sem clCombinadoa";
 				document.getElementById("clCombinado").textContent = `${dados.clCombinado} ppm` || "Sem clCombinadoa";
 				document.getElementById("clLivre").textContent = `${dados.clLivre} ppm` || "clLivreo não registrado";
 				document.getElementById("durCalc").textContent = `${dados.durCalc} ppm` || "Não informado";

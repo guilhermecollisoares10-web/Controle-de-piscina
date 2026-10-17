@@ -470,7 +470,7 @@
 		<p class="panel" style="padding: 70px;color: var(--tx-color1);" id="painel"></p>
 	</div>
 	<script>		
-		let jogos = JSON.parse(localStorage.getItem("bibliotecaJogos")) || {};
+		let jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {};
 		let adicionar = document.getElementById('add')
 		let atualizar = document.getElementById('atu')
 		let excluir = document.getElementById('exc')
@@ -534,7 +534,7 @@
 			TDS: TDS,
 			turbidez: turbidez
 		  };
-			localStorage.setItem("bibliotecaJogos", JSON.stringify(jogos));
+			localStorage.setItem("bibliotecaDias", JSON.stringify(jogos));
 		}
 		
 		
@@ -542,7 +542,7 @@
 		if (jogos[dia]) {
 			delete jogos[dia]
 			console.log('Jogo removido com sucesso')
-			localStorage.setItem("bibliotecaJogos", JSON.stringify(jogos));
+			localStorage.setItem("bibliotecaDias", JSON.stringify(jogos));
 
 		}
 		else {
@@ -638,13 +638,13 @@
 		});
 		exibir.addEventListener('click', mostrarJogosBonito);
 		limpar.addEventListener('click', function () {
-    localStorage.removeItem("bibliotecaJogos");
+    localStorage.removeItem("bibliotecaDias");
     alert("Biblioteca limpa!");
     location.reload(); 
 });
 	mostrar.addEventListener('click', () => location.reload());
 function carregarSelect() {
-    const jogos = JSON.parse(localStorage.getItem("bibliotecaJogos")) || {}; // <-- aqui
+    const jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {}; // <-- aqui
     const select = document.getElementById("sel");
 
     select.innerHTML = '<option value="">Preencher automaticamente</option>';
@@ -663,7 +663,7 @@ carregarSelect();
 
 document.getElementById("sel").addEventListener("change", function() {
     const diaSelecionado = this.value;
-    const jogos = JSON.parse(localStorage.getItem("bibliotecaJogos")) || {}; // <-- aqui
+    const jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {}; // <-- aqui
 
     const dados = jogos[diaSelecionado];
 

@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Estatísticas</title>
-		<link rel="stylesheet" href="Bibliotecas/CSS.css">
-		<link rel="stylesheet" href="Bibliotecas/menuFixo.css">
+		<link rel="stylesheet" href="CSS.css">
+		<link rel="stylesheet" href="menuFixo.css">
 	</head>
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -71,7 +71,7 @@
 		}
 	</style>
 	<body>
-		<a href="file:///C:/Users/Usuario/Desktop/Controle%20de%20piscina/P%C3%A1gina_Principal.html"> 
+		<a href="Página_Principal.html"> 
 		<button class="inie">início<i class="fa-solid fa-house" style="color: rgb(229, 234, 238);"></i></button>
 		</a>
 		<h1 style="text-align: center;">Estatísticas</h1>
@@ -88,7 +88,7 @@
 	<script>
 	const painel = document.getElementById('painel');
 	
-	const jogos = JSON.parse(localStorage.getItem("bibliotecaJogos")) || {};
+	const jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {};
 	
 	const estatisticas = JSON.parse(localStorage.getItem("estatisticas")) || {};
 	

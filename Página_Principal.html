@@ -1324,7 +1324,9 @@
 			//const btnp  = document.getElementById('pesqui');
 			//const genero  = document.getElementById('selectFormal');
 			//const pesquisa  = document.getElementById('pesquisa');
-			
+			cfg.addEventListener('click', function() {
+				con.classList.toggle('show')
+			})
 			document.getElementById("add").addEventListener('click', function() {
 			document.getElementById("pnlCasa").classList.add('show');
 			menuLateral.classList.remove('mostrar')

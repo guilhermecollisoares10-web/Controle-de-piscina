@@ -1,7 +1,7 @@
 		@media (max-width:980px){
 		.men {
 		position:relative;
-		bottom: 20vw;
+		top: 20vw;
 		}
 		.bar {
 		color: var(--tx-color1);
@@ -32,7 +32,7 @@
 		}
 		.menu {
 			position: relative;
-			bottom: 30vw;
+			top: 10vw;
 		}
 		/*Botões*/
 		.zrd {

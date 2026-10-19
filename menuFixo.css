@@ -1,4 +1,91 @@
-.men {
+		@media (max-width:980px){
+		.men {
+		position:relative;
+		bottom: 20vw;
+		}
+		.bar {
+		color: var(--tx-color1);
+		position:fixed;
+		top: 3.4vw;
+		left: 29.5vw;
+		z-index:100000;
+		height: 5vw;
+		text-align: center;
+		margin: 0;
+		text-decoration:none;
+		border: 1px #0f141a solid;
+		border-radius: 15px;
+		width: 40vw;
+		}
+		.bib {
+		position:relative;
+		top:0;
+		bottom: 3.5vw;
+		background-color: var(--fn-color);
+		width: 40vw;
+		position:relative;
+		left: 0;
+		border: 1px #0f141a solid;
+		border-radius: 15px;
+		text-decoration:none;
+		height: 5vw;
+		}
+		.menu {
+			position: relative;
+			bottom: 30vw;
+		}
+		/*Botões*/
+		.zrd {
+		position:fixed;
+		left:3vw;
+		top: 3vw;
+		width:auto;
+		border: 1px #1f1f1f solid;
+		border-radius: 15px;
+		}
+		.btnz {
+		background-color: var(--fn-color);
+		border: 3px solid white;
+		border-radius: 15px;
+		padding: 13px;
+		color: var(--tx-color1);
+		font-size: 1vw;
+		}
+		.abn {
+		position:fixed;
+		left:5vw;
+		top: 3vw;
+		width:auto;
+		border: 1px #1f1f1f solid;
+		border-radius: 15px;
+		}
+		.btna {
+		background-color: var(--fn-color);
+		border: 3px solid white;
+		border-radius: 15px;
+		padding: 13px;
+		color: var(--tx-color1);
+		font-size: 3vw;
+		}
+		.est {
+		position:fixed;
+		left:70vw;
+		top: 3vw;
+		width:auto;
+		border: 1px #1f1f1f solid;
+		border-radius: 15px;
+		}
+		.btne {
+		background-color: var(--fn-color);
+		border: 3px solid white;
+		border-radius: 15px;
+		padding: 13px;
+		color: var(--tx-color1);
+		font-size: 2vw;
+		}
+		}
+		@media (min-width:981px){
+		.men {
 		position:relative;
 		top: 10vw;
 		}
@@ -6,7 +93,7 @@
 		color: var(--tx-color1);
 		position:fixed;
 		top: 2.6vw;
-		left: 28.7vw;
+		left: 30vw;
 		z-index:100000;
 		height: 3vw;
 		text-align: center;
@@ -35,7 +122,6 @@
 		.zrd {
 		position:fixed;
 		left:3vw;
-		z-index:10000000000000000000000;
 		top: 3vw;
 		width:auto;
 		border: 1px #1f1f1f solid;
@@ -52,7 +138,6 @@
 		.abn {
 		position:fixed;
 		left:15vw;
-		z-index:10000000000000000000000;
 		top: 3vw;
 		width:auto;
 		border: 1px #1f1f1f solid;
@@ -68,8 +153,7 @@
 		}
 		.est {
 		position:fixed;
-		left:70vw;
-		z-index:10000000000000000000000;
+		left:72vw;
 		top: 3vw;
 		width:auto;
 		border: 1px #1f1f1f solid;
@@ -82,4 +166,13 @@
 		padding: 13px;
 		color: var(--tx-color1);
 		font-size: 1vw;
+		}
+		.btne:hover {
+			box-shadow: 4px 4px 3px 3px black;
+			transform: scale(1.05);
+		}
+		.btna:hover {
+			box-shadow: 4px 4px 3px 3px black;
+			transform: scale(1.05);
+		}
 		}

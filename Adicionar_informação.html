@@ -258,11 +258,14 @@
 	flex-direction: column;
 	position: relative;
 	left: 250px;
-	bottom: 550px;
+	bottom: 950px;
 	width: 200px;
 	margin-bottom: 10px;
 	}
-	
+	.buttons > button {
+		margin-bottom: 40px;
+
+	}
 	.panel {
 	position: relative;
 	bottom: 400px;
@@ -417,25 +420,21 @@
 	left: 500px;
 	top: 150px;
 	}
+	.login {
+	font-size: 30px;
+	}
 	}
 	</style>
 	<body>
-	<h1 class="bar"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div class="bib" >Controle Piscina</div></a></h1>
-	<h1 class="title"> Adicionar/ Atualizar/ Remover Dia da Biblioteca</h1>	
+	<p class="login">Login Realizado em: <span id="login" style="font-style:italic"></span></p>
+	<h1 class="bar" style="position:fixed;top:7vw;left: 30vw;"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div style="position:fixed;top:7vw;left: 30vw;" class="bib" >Controle Piscina</div></a></h1>
+	<h1 class="title"> Adicionar/ Atualizar/ Remover Registro da Biblioteca</h1>	
 	<div class="container">
 	<p>Não é necessário que todas as informações sejam preenchidas para adicionar um dia, é possivel apenas colocar aquilo que voce deseja e, se preciso, é possivel adicionar depois</p>
 		<label for="dia">Selecione o dia:</label>
 		<input type="date" id="dia"><br>
 		<label for="ph">Digite o Ph medido:</label>
 		<input type="text" id="ph" placeholder="Digite o Ph medido"><br>
-		<!--<div style="display: flex; flex-direction: column;">
-		<select id="sta" style="padding: 30px; background-color: black; color: var(--tx-color1);border-radius: 13px; cursor: pointer;margin: 20px;width: 200px;">
-		<option value="nulo">Selecione um status:</option>
-		<option id="zer">Zerado</option>
-		<option id="jog">jogando</option>
-		<option id="nun">Nunca Joguei</option>
-		</select><br>
-		</div>-->
 		<label for="clLivre">Digite o Cloro livre medido:</label>
 		<input type="number" id="clLivre" placeholder="Digite o Cloro livre"><br>
 		<label for="clCombinado">Digite o Cloro combinado medido:</label>
@@ -457,7 +456,8 @@
 		<input type="text" id="obs" placeholder="Digite as Observações"><br>
 		
 		<!--Novas infomações!-->
-		
+		<select id="selCasa" style="padding: 30px; background-color: black; color: var(--tx-color1);border-radius: 13px; cursor: pointer;margin: 20px;width: 200px;">
+		</select><br>
 		
 		<!--<label for="img">Selecione uma imagem para o jogo:</label>
 		<input type="text" id="img" placeholder="Digite o codigo da imagem"><br>-->
@@ -468,12 +468,31 @@
 			<button class="cards" style="margin-left: 20px; background-color: #314c53; padding: 20px;color: var(--tx-color1); border: 4px var(--tx-color1) solid;" id="exc" >Excluir</button>
 			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="exi" >Exibir</button>
 			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="limp" >Limpar lista</button>
-			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="show" >Mostrar Cards</button>
+			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="show" >Mostrar Registros</button>
 		</div>
 		<p class="panel" style="padding: 70px;color: var(--tx-color1);" id="painel"></p>
 	</div>
-	<script>		
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+	  const banco = supabase.createClient(
+		"https://cnpoethknqlrxitzokte.supabase.co",
+		"sb_publishable_qn5fHfjNWyR57ROt8SySrQ_W-IB4Z2w"
+	  );
+	  async function testarBanco() {
+	  const { data, error } = await banco
+		.from("Controle de Piscina")
+		.select("*");
+
+	  console.log("Dados:", data);
+	  console.log("Erro:", error);
+	}
+
+	testarBanco();
+		
 		let jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {};
+		loginEfetuado = localStorage.getItem("loginEfetuado");
+		let login = document.getElementById('login');
+		login.textContent = loginEfetuado;
 		document.getElementById('dia').value = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 		let adicionar = document.getElementById('add')
 		let atualizar = document.getElementById('atu')
@@ -486,7 +505,31 @@
 		let situação_atual = 'nulo'
 		// Criamos o objeto vazio
 		
+		async function carregarSelectCasa() {
+	const select = document.getElementById("selCasa");
+	select.innerHTML = '<option value="">Selecione uma casa</option>';
 
+	const { data: registros, error } = await banco
+		.from("Casas")
+		.select("id, casa")
+
+	if (error) {
+		console.error("Erro ao carregar registros:", error);
+		painel.textContent = `Erro ao carregar: ${error.message}`;
+		return;
+	}
+
+	for (const registro of registros) {
+		const option = document.createElement("option");
+		option.value = registro.id;
+		option.textContent =
+			`${registro.casa}`;
+		select.appendChild(option);
+		console.log(registro)
+	}
+	
+}
+carregarSelectCasa();
 
 		function mostrarJogosBonito() {
 			painel.innerHTML = ""; // limpa o painel
@@ -511,7 +554,7 @@
 		
 		
 		function cleanInput() {
-			document.getElementById('dia').value = '';
+		  document.getElementById('dia').value = '';
 		  document.getElementById('ph').value = 'nulo';
 		  document.getElementById('clCombinado').value = '';
 		  document.getElementById('clLivre').value = '';
@@ -519,7 +562,7 @@
 		  document.getElementById('durCalc').value = '';
 		  document.getElementById('obs').value = '';
 		}
-		function adicionarJogo(dia, ph, clCombinado, acCian, alcalinidade, durCalc, clLivre, TDS, turbidez, obs) {
+		function adicionarJogo(dia, ph, clCombinado, acCian, alcalinidade, durCalc, clLivre, TDS, turbidez, obs, casa) {
 		  if (jogos[dia]) {
 			console.log(`'${dia}' já registrado. Atualizando dados...`);
 			
@@ -538,7 +581,8 @@
 			acCian: acCian,
 			TDS: TDS,
 			turbidez: turbidez,
-			obs: obs
+			obs: obs,
+			casa: casa
 		  };
 			localStorage.setItem("bibliotecaDias", JSON.stringify(jogos));
 		}
@@ -567,6 +611,7 @@
 		let TDS = document.getElementById('TDS').value;
 		let turbidez = document.getElementById('turbidez').value;
 		let obs = document.getElementById('obs').value;
+		let casa = document.getElementById('selCasa').value;
 		//let Img = document.getElementById('img').value;
 		//let Sta = document.getElementById('sta').value;
 		let valoresBrutos = {
@@ -580,11 +625,12 @@
 		acCian: acCian,
 		TDS: TDS,
 		turbidez: turbidez,
-		obs: obs
+		obs: obs,
+		casa: casa
 		//img: Img
 		}
 		let valores = {}
-		let listateste = [dia, ph, clCombinado, acCian, alcalinidade, durCalc, clLivre, TDS, turbidez, obs];
+		let listateste = [dia, ph, clCombinado, acCian, alcalinidade, durCalc, clLivre, TDS, turbidez, obs, casa];
 		for (let [item, valor] of Object.entries(valoresBrutos)) {
 			if (valor !== ''){
 			valores[item] = "Preenchido"
@@ -599,94 +645,182 @@
 		}
 		}
 		
-		adicionar.addEventListener('click', function() {
-		let dia = document.getElementById('dia').value;
-		let resultado = pegarValores();   
-		let valores = resultado.valores;  
-		console.log(valores)
-		let lista = resultado.listateste; 
-		let preenchidos = []
-		let faltantes = []
-		for (let [campo, valor] of Object.entries(valores)) {
-			if (valor == "Preenchido") {
-				preenchidos.push(campo);
-			} 
-			else {
-				faltantes.push(campo);
-			}
-		}
+		adicionar.addEventListener('click', async function() {
+		  const resultado = pegarValores();
+		  const valores = resultado.valores;
+		  const lista = resultado.listateste;
 
-		console.log(preenchidos)
-		console.log(faltantes)
-		adicionarJogo(...lista)
-		painel.innerHTML = `Informações para ${dia} Adicionadas <br> Informações faltantes para ${dia}: ${faltantes.join(", ")}`;
-		cleanInput()
-		});
+		  const [dia, ph, clCombinado, acCian, alcalinidade, durCal, clLivre, TDS, turbidez, observacoes, id_casa] = lista;
+
+		  if (!dia) {
+			painel.textContent = "Selecione o dia.";
+			return;
+		  }
+
+		  const numero = valor =>
+			valor === "" ? null : Number(String(valor).replace(",", "."));
+
+		  const registro = {
+			usuario: localStorage.getItem("loginEfetuado") || "visitante",
+			dia: dia,
+			Ph: numero(ph),
+			clLivre: numero(clLivre),
+			clComb: numero(clCombinado),
+			durCal: numero(durCal),
+			alcalinidade: numero(alcalinidade),
+			acCian: numero(acCian),
+			TDS: numero(TDS),
+			turbidez: numero(turbidez),
+			observacoes: observacoes || null,
+			id_casa: id_casa || null
+		  };
+
+		  const idSelecionado = registroSelecionadoId;
+			const atualizando = idSelecionado !== null;
+
+			// Ao atualizar, preserva quem criou o registro.
+			const { usuario, ...camposDoRegistro } = registro;
+
+			const respostaBanco = atualizando
+				? await banco
+					.from("Controle de Piscina")
+					.update(camposDoRegistro)
+					.eq("Usuário", idSelecionado)
+				: await banco
+					.from("Controle de Piscina")
+					.insert(registro);
+
+			if (respostaBanco.error) {
+				console.error(respostaBanco.error);
+				painel.textContent = `Erro ao salvar: ${respostaBanco.error.message}`;
+				return;
+			}
+
+			painel.textContent = atualizando
+				? `Registro de ${dia} atualizado.`
+				: `Registro de ${dia} adicionado.`;
+
+			registroSelecionadoId = null;
+			document.getElementById("sel").value = "";
+			cleanInput();
+			await carregarSelect();
+			});
 
 		
-		excluir.addEventListener('click', function() {
-		let dia = document.getElementById('dia').value;
-		let ph = document.getElementById('ph').value;
-		let clCombinado = document.getElementById('clCombinado').value;
-		let clLivre = document.getElementById('clLivre').value;
-		let alcalinidade = document.getElementById('alcalinidade').value;
-		let durCalc = document.getElementById('durCalc').value;
-		let acCian = document.getElementById('acCian').value;
-		let TDS = document.getElementById('TDS').value;
-		let turbidez = document.getElementById('turbidez').value;
-		let obs = document.getElementById('obs').value;
-		if (dia !== '') {
-			excluirJogos(dia);
-			console.log('Dia excluído com sucesso!')
-			console.log(jogos);
-			painel.textContent = `Dados do dia ${dia} excluído com sucesso!`
-			cleanInput()
-		}
+		excluir.addEventListener("click", async function () {
+			const dia = document.getElementById("dia").value;
+
+			if (!dia) {
+				painel.textContent = "Selecione o dia que deseja excluir.";
+				return;
+			}
+
+			if (!confirm(`Excluir do banco todos os registros do dia ${dia}?`)) return;
+
+			const { data, error } = await banco
+				.from("Controle de Piscina")
+				.delete()
+				.eq("dia", dia)
+				.select("dia");
+
+			if (error) {
+				console.error(error);
+				painel.textContent = `Erro ao excluir: ${error.message}`;
+				return;
+			}
+
+			painel.textContent = data.length
+				? `Registro(s) do dia ${dia} excluído(s).`
+				: "Nada foi excluído. Pode estar faltando permissão de exclusão no Supabase.";
+
+			cleanInput();
 		});
 		exibir.addEventListener('click', mostrarJogosBonito);
-		limpar.addEventListener('click', function () {
-    localStorage.removeItem("bibliotecaDias");
-    alert("Biblioteca limpa!");
-    location.reload(); 
-});
+		limpar.addEventListener("click", async function () {
+			if (!confirm("Tem certeza que deseja apagar todos os registros do banco?")) return;
+
+			const { data, error } = await banco
+				.from("Controle de Piscina")
+				.delete()
+				.not("dia", "is", null)
+				.select("dia");
+
+			if (error) {
+				console.error(error);
+				painel.textContent = `Erro ao limpar a lista: ${error.message}`;
+				return;
+			}
+
+			painel.textContent = `${data.length} registro(s) removido(s) do banco.`;
+			cleanInput();
+		});
 	mostrar.addEventListener('click', () => location.reload());
-function carregarSelect() {
-    const jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {}; // <-- aqui
-    const select = document.getElementById("sel");
+let registroSelecionadoId = null;
 
-    select.innerHTML = '<option value="">Preencher automaticamente</option>';
 
-    for (let [dia, dados] of Object.entries(jogos)) {
-        const option = document.createElement("option");
-        option.value = dia;
-        option.textContent = dia;
-        select.appendChild(option);
-    }
+
+async function carregarSelect() {
+	const select = document.getElementById("sel");
+	select.innerHTML = '<option value="">Selecione um registro</option>';
+
+	const { data: registros, error } = await banco
+		.from("Controle de Piscina")
+		.select("*")
+		.order("dia", { ascending: false });
+
+	if (error) {
+		console.error("Erro ao carregar registros:", error);
+		painel.textContent = `Erro ao carregar: ${error.message}`;
+		return;
+	}
+
+	for (const registro of registros) {
+		const option = document.createElement("option");
+		option.value = registro["Usuário"];
+		option.textContent =
+			`${registro.dia} — ${registro.usuario ?? "usuário"}`;
+		select.appendChild(option);
+	}
 }
 
+document.getElementById("sel").addEventListener("change", async function () {
+	const id = Number(this.value);
 
+	if (!id) {
+		registroSelecionadoId = null;
+		return;
+	}
+
+	const { data: registro, error } = await banco
+		.from("Controle de Piscina")
+		.select("*")
+		.eq("Usuário", id)
+		.maybeSingle();
+
+	if (error || !registro) {
+		console.error("Erro ao abrir registro:", error);
+		painel.textContent = "Não foi possível carregar esse registro.";
+		return;
+	}
+
+	registroSelecionadoId = id;
+
+	document.getElementById("dia").value = registro.dia ?? "";
+	document.getElementById("ph").value = registro.Ph ?? "";
+	document.getElementById("clLivre").value = registro.clLivre ?? "";
+	document.getElementById("clCombinado").value = registro.clComb ?? "";
+	document.getElementById("alcalinidade").value = registro.alcalinidade ?? "";
+	document.getElementById("durCalc").value = registro.durCal ?? "";
+	document.getElementById("acCian").value = registro.acCian ?? "";
+	document.getElementById("TDS").value = registro.TDS ?? "";
+	document.getElementById("turbidez").value = registro.turbidez ?? "";
+	document.getElementById("selCasa").value = registro.id_casa ?? "";
+	document.getElementById("obs").value =
+		registro.observacoes ?? registro["observações"] ?? "";
+});
 
 carregarSelect();
 
-document.getElementById("sel").addEventListener("change", function() {
-    const diaSelecionado = this.value;
-    const jogos = JSON.parse(localStorage.getItem("bibliotecaDias")) || {}; // <-- aqui
-
-    const dados = jogos[diaSelecionado];
-
-    if (dados) {
-        document.getElementById("dia").value = diaSelecionado;
-        document.getElementById("acCian").value = dados.acCian;
-        document.getElementById("ph").value = dados.ph;
-        document.getElementById("alcalinidade").value = dados.alcalinidade;
-        document.getElementById("durCalc").value = dados.durCalc;
-        document.getElementById("clLivre").value = dados.clLivre;
-        document.getElementById("clCombinado").value = dados.clCombinado;
-		document.getElementById("TDS").value = dados.TDS;
-		document.getElementById("turbidez").value = dados.turbidez;
-		document.getElementById("obs").value = dados.obs;
-    }
-});
 
 
 
@@ -712,7 +846,7 @@ function mostrarJogosComoCards() {
         card.className = "card-jogo";
 
        card.innerHTML = `
-    <img src="${dados.codigo}" class="imagem-real">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka65kV9IPeZQ8e5s3lATdqYM_XN-84ljKGS4pL6UvIQ&s=10" class="imagem-real">
 `;
 
 		card.addEventListener("click", function() {
@@ -728,8 +862,7 @@ function mostrarJogosComoCards() {
 
     painel.appendChild(container);
 }
-
-
+console.log(loginEfetuado);
 mostrarJogosComoCards()
 		console.log(jogos)
 	</script>

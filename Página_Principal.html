@@ -180,11 +180,15 @@
 			box-shadow: 1px 1px 1px 1px black;
 		}
 
-		button:hover {
-			box-shadow: 4px 4px 3px 3px black;
-			transform: scale(1.05);
+		input {
+			border-radius: 13px;
+			border: 1px solid black;
 		}
-
+		input[type="radio"] {
+		transform: scale(1.8);
+		accent-color: blue;
+		cursor: pointer;
+		}
 		button {
 			transition: transform 0.5s ease;
 			cursor: pointer;
@@ -379,16 +383,19 @@
 		transform: scale(1.2);
 		}
 		.sideBar {
-		width: 0;		
-		opacity: 0;
-		bottom: 0;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		color: black;
-		transition: width 0.3s ease, opacity 0.3s ease;
-		z-index: 99999999999999999999999;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 100vh;
+			opacity: 0;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			background-color: white;
+			color: black;
+			transition: width 0.3s ease, opacity 0.3s ease;
+			z-index: 1000;
 		}
 		.sideBar > button {
 			margin: 30px;
@@ -398,14 +405,19 @@
 		.sideBar >:nth-child(1) {
 			margin-top: 100px;
 		}
-
+		.teste {
+			opacity: 0;
+		}
+		.teste > button {
+			border: none;
+			margin: 10px;
+			background-color: white;
+			color: blue;
+			text-decoration: underline;
+		}
 		.sideBar.mostrar {
-		position: relative;
-		right: 0;
-		left: 0;
-		width: 100%;
-		opacity: 1;
-		height: 1000vh;
+			width: 100%;
+			opacity: 1;
 		}
 
 		.show {
@@ -823,33 +835,74 @@
 
 <body id="body">
 		<button style="position: relative; z-index: 100001;" id="menu">Menu Lateral</button>
+		
 		<div class="sideBar" id="mnLat">
-			<button  id="sair" class="btnSai"type="button">  Deslogar</button>	
-			<button  id="add" class="btnAdd" type="button">  Adicionar casa</button>
+			<h1 style="color: black;text-decoration: underline;font-size: 70px;">Menu</h1>
+			<div class="teste" style="display: flex;flex-direction: column;" id="prop">
+				<h1 style="color: black;font-size: 50px;">Proprietário</h1>
+				<button  id="sair" class="btnSai"type="button">  Deslogar</button>	
+				<button  id="add" class="btnAdd" type="button">  Criar casa</button>
+				<button  id="xx" class="btnSai"type="button">  Gerar código</button>	
+				<button  id="yy" class="btnAdd" type="button">  Pesquisa</button>
+			</div>
+
+			<div class="teste" style="display: flex;flex-direction: column;position: relative;" id="pisc">
+				<h1 style="color: black;font-size: 50px;">Piscineiro</h1>
+				<button  id="sairPi" class="btnSai"type="button">  Deslogar</button>	
+				<button  id="addPi" class="btnAdd" type="button">  Criar casa</button>
+				<button  id="xxPi" class="btnSai"type="button">  Gerar código</button>	
+				<button  id="yyPi" class="btnAdd" type="button">  Pesquisa</button>
+			</div>
 		</div>
+
 		<div class="login" id="login">
-			
+
+			<h1 style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">Login</h1>
 			<div class="loginSenha">
+				
+				
+				<label style="font-size: 40px;"for="inputCad">Email:</label>
+				<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="inputCad" placeholder="Digite seu e-mail"><br>
+				<label style="font-size: 40px;"for="senhaCad">Senha:</label>
+				<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senhaCad" placeholder="Digite sua senha">
+			</div>
+			
+			
+			<div style="position:relative; top: 90px;right: 1%;">
+				<button style="font-size: 50px;"class="close" id="close">X</button>
+				<button id="entrar" style="font-size: 40px;position: relative;left: 365px;top: 50px;background-color: green;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
+				
+				<p style="position: relative; top: 40px;margin: 40px;color: black;"><span id="loginSit" style="font-size: 50px;"></span></p>
+			</div>
+			<button id="pagCadastro" style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;" >Cadastrar</button>
+		
+		</div>
+
+		<div class="login" id="pnlCadatsro">
+			<h1 style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">Cadastro</h1>
+			<div class="loginSenha">
+				
 				<label style="font-size: 40px;"for="nomeInput">Digite o Nome:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="text" id="nomeInput" placeholder="Digite ou selecione o Nome"><br>
+				<input style="font-size: 40px;margin-bottom: 30px;" type="text" id="nomeInput" placeholder="Digite o Nome"><br>
 				<label style="font-size: 40px;"for="input">Digite o email:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="input" placeholder="Digite ou selecione o login"><br>
+				<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="input" placeholder="Digite o e-mail"><br>
 				<label style="font-size: 40px;"for="senha">Senha:</label>
 				<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senha" placeholder="Digite sua senha">
 			</div>
 			
 			<div style="font-size: 50px;position:relative; top: 90px; left: 1%;">
-				<p style="font-size: 50px;">Selecione o tipo da conta:</p>
+				<p style="font-size: 50px;color: black;">Selecione o tipo da conta:</p>
 				<input  value="piscineiro" type="radio" name="check">Piscineiro</input>
 				<input value="proprietario" type="radio" name="check">Proprietario</input>
 			</div>
 			
 			<div style="position:relative; top: 90px;right: 1%;">
-				<button style="font-size: 50px;"class="close" id="close">X</button>
-				<button id="entrar" style="font-size: 40px;position: relative;top: 50px;background-color: green;border-radius: 12px;border: black 2px solid;">Entrar</button>
-				<button style="font-size: 40px;position: relative;top: 50px;background-color: green;border-radius: 12px;border: black 2px solid;" id="criarConta">Criar conta</button>
-				<p style="position: relative; top: 40px;"><span id="loginSit"></span></p>
+				<button id="criarConta" style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: green;border-radius: 12px;border: none;padding: 20px;">Criar conta</button>
+				<p style="position: relative; top: 40px;margin: 30px;color: black"><span style="color: black;font-size: 50px" id="cadastroSit"></span></p>
 			</div>
+			<button id="elogin" style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;" >Login</button>
+			<button id="voltar" style="font-size: 40px;position: relative;top: 150px;left: 426px;text-decoration: underline;background-color: white; border: none;" >Sair</button>
+
 		
 		</div>
 		
@@ -883,16 +936,6 @@
 			</div>
 					
 		<div class="menu" style="transform: scale(1.1)">
-			<!--<div class="pesquisa">
-			<button id="pesqui" class="btnz" >Opções de pesquisa</button>				
-								<div id="selPesq" class="mencont" style="max-width: 400px;">
-								<select id="selectFormal" class="color">
-								<option>Selecione um método de pesquisa</option>
-								<option id="genero">Genero</option>
-								<option id="acao">Açao</option>
-								</select>
-								</div>
-			</div>-->
 		
 			<div class="abn" ><a style="font-size: 30px;" href="Adicionar_informação.html"><button class="btna" style="font-size: 25px;">Adicionar Registro</button></a></div>
 
@@ -920,22 +963,6 @@
 				<div class="table1" id="painel"></div>			
 			</div>
 
-			<!--<p><h2 class="mai"style="color: var(--tx-color1);" >Mais:</h2></p>-->
-			<!--<ul>
-			<li><a style="font-size: 1vw;" href="file:///C:/Users/Usuario/Desktop/testes/BibliotecaPessoal/zerados.html"><button class="btn">Jogos Zerados</button></a></li>
-			<li><p><a style="font-size: 1vw;" href="file:///C:/Users/Usuario/Desktop/testes/BibliotecaPessoal/Abandonados.html"><button class="btn">Jogos Abandonados</button></a></p></li>
-			<li><a style="font-size: 1vw;" href="file:///C:/Users/Usuario/Desktop/testes/BibliotecaPessoal/Estat%C3%ADsticas.html"><button class="btn">Estatísticas de Desepenho</button></a></li></p></li>
-			<li><a style="font-size: 25px;" href="file:///C:/Users/Usuario/Desktop/testes/2teste/Jogando.html">Jogando Agora</a></li>
-			</ul>-->
-			<!--<div class="cfg">
-				<h2 style="color: var(--tx-color1)">Configuração do Computador</h2><br>
-				<ul>
-					<div class="gpu"><li style="color: #9f111b;">Placa De Vídeo: AMD Radeon RX6600</li></div>
-					<div class="cpu"><p><li style="color: #bd3737;">Processador: AMD ryzen 7 5700G</li></p></div>
-					<div class="plm"><li style="color: #b11623;">Placa-Mãe: ASUS TUF Gaming A520M-PLUS||</li><br></div>
-				</ul>
-			</div>-->
-
 			<p class="bibl">Controle de Piscina, 2026</p>
 
 		</div>
@@ -943,6 +970,8 @@
 <script>
 		  document.addEventListener("DOMContentLoaded", async function () {
 			const painelLogin = document.getElementById("login");
+			const cadastro = document.getElementById("pagCadastro");
+			const pnlCadatsro = document.getElementById("pnlCadatsro");
 			const btnMenu = document.getElementById("menu");
 			const menuLateral = document.getElementById("mnLat");
 			const campoNomeDaCasa = document.getElementById("nomeCasa");
@@ -955,7 +984,9 @@
 			const campoCodigoConvite = document.getElementById("codigoConvite");
 			const botaoAceitarConvite = document.getElementById("aceitarConvite");
 			const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
-			
+			const voltar = document.getElementById("voltar");
+			const elogin = document.getElementById("elogin");
+
 			async function carregarSelectCasa() {
 				const select = document.getElementById("selCasa");
 				select.innerHTML = '<option value="">Selecione uma casa</option>';
@@ -997,9 +1028,7 @@
 			  statusDaCasa.textContent = "Não foi possível carregar as casas.";
 			  return;
 			}
-			btnMenu.addEventListener('click', function() {
-				menuLateral.classList.toggle('mostrar')
-			})
+			
 			seletorCasaConvite.replaceChildren();
 
 			const opcaoPadrao = document.createElement("option");
@@ -1025,6 +1054,32 @@
 			
 			}
 			
+			btnMenu.addEventListener('click', async function() {
+				menuLateral.classList.toggle('mostrar')
+				const proprietario = document.getElementById("prop")
+				const piscineiro = document.getElementById("pisc")
+				const { data: dados, error} = await banco
+					.from("Perfis")
+					.select("tipodeperfil")
+
+					if (error) {
+						console.error("Erro ao carregar perfil:", error);
+						return;
+					}
+
+					if (dados) {
+						console.log(dados[0]["tipodeperfil"])
+						if (dados[0]["tipodeperfil"] == "proprietario"){
+							proprietario.classList.add('show')
+						}
+						else if (dados[0]["tipodeperfil"] == "piscineiro"){
+							piscineiro.classList.add('show')
+							piscineiro.style.position = "relative"
+							piscineiro.style.bottom = "380px"
+						}
+					}
+			})
+
 			botaoAdicionarCasa.addEventListener("click", async function () {
 			  const nome = campoNomeDaCasa.value.trim();
 
@@ -1208,7 +1263,19 @@
 			} else {
 			  painelLogin.classList.add("show");
 			}
-
+			cadastro.addEventListener('click', function() {
+				pnlCadatsro.classList.add('show')
+				painelLogin.classList.remove("show");
+			});
+			
+			voltar.addEventListener('click', function() {
+				pnlCadatsro.classList.remove("show");
+			});
+			
+			elogin.addEventListener('click', function() {
+				painelLogin.classList.add("show");
+				pnlCadatsro.classList.remove("show");
+			})
 			let close = document.getElementById("close");
 			close.addEventListener("click", function () {
 			  painelLogin.classList.remove("show");
@@ -1221,10 +1288,9 @@
 			const criarConta = document.getElementById("criarConta");
 
 			entrar.addEventListener("click", async function () {
-			  const email = document.getElementById("input").value.trim();
-			  const senha = document.getElementById("senha").value;
+			  const email = document.getElementById("inputCad").value.trim();
+			  const senha = document.getElementById("senhaCad").value;
 			  const painel = document.getElementById("loginSit");
-
 			  const { data, error } = await banco.auth.signInWithPassword({
 				email,
 				password: senha
@@ -1262,13 +1328,13 @@
 			  const nome = document.getElementById("nomeInput").value.trim();
 			  const email = document.getElementById("input").value.trim();
 			  const senha = document.getElementById("senha").value;
+			  const painelCadastro = document.getElementById("cadastroSit");
 			  const tipoSelecionado =
 				document.querySelector('input[name="check"]:checked');
-			  const painel = document.getElementById("loginSit");
 
 			  if (!nome || !email || !senha || !tipoSelecionado) {
-				painel.textContent =
-				  "Preencha nome, e-mail, senha e tipo para criar a conta.";
+				painelCadastro.textContent =
+				  "Preencha nome, e-mail, senha e tipo de conta para criar a conta.";
 				return;
 			  }
 
@@ -1288,7 +1354,7 @@
 			  });
 
 			  if (error) {
-				painel.textContent =
+				painelCadastro.textContent =
 				  "Não foi possível criar a conta: " + error.message;
 				console.error(error);
 				return;
@@ -1298,7 +1364,7 @@
 				const erroPerfil = await garantirPerfil(data.user, tipo);
 
 				if (erroPerfil) {
-				  painel.textContent =
+				  painelCadastro.textContent =
 					"Conta criada, mas não foi possível salvar o perfil: " + erroPerfil;
 				  console.error(erroPerfil);
 				  return;
@@ -1306,10 +1372,10 @@
 
 				localStorage.setItem("loginEfetuado", nome);
 				user.textContent = nome;
-				painel.textContent = "Conta criada.";
+				painelCadastro.textContent = "Conta criada.";
 				painelLogin.classList.remove("show");
 			  } else {
-				painel.textContent =
+				painelCadastro.textContent =
 				  "Conta criada. Confirme o e-mail e depois entre com sua conta.";
 			  }
 			});

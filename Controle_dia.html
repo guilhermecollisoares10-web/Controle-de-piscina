@@ -10,6 +10,191 @@
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
+	@media(max-width:981px) {
+		:root {
+		--bg-color: #10100f;
+		--tx-color1: white;
+		--fn-color: #314c53;
+		--tx-color4: black;
+		--cb-color: #121212;
+		transition: background-color 0.3s, color 0.3s;
+		}
+		.light-mode {
+		--bg-color: #fdf2c5;
+		--tx-color1: #000000;
+		--tx-color4: #efd8a4;
+		--cb-color: #e7edea;
+		--fn-color: #ffffff;
+		transition: background-color 0.3s, color 0.3s;
+		}
+		.dark-mode {
+		--bg-color: #10100f;
+		--tx-color1: white;
+		--tx-color4: #2b2726;
+		--cb-color: #121212;
+		--fn-color: #314c53;
+		transition: background-color 0.3s, color 0.3s;
+		}
+		body {
+		transition: background-color 0.3s, color 0.3s;
+		}
+	h1 {
+	font-family: "Fjalla One", sans-serif;
+	color: var(--tx-color1);
+	font-size: 4vw;
+	}
+	.bar {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 3vw;
+	}
+	h2 {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 4vw;
+	}
+	button {
+	cursor: pointer;
+	}
+	body {
+		background-color: var(--bg-color);
+		}
+		.cfg {
+		border: solid black 3px;
+		padding: 10px;
+		margin: 30px;
+		border-radius: 15px;
+		box-shadow: 10px 10px 5px gray;
+		background-color: #8e8e8e;
+		color: #bd3737;
+		font-size: 1vw;
+		font-family: "Fjalla One", sans-serif;
+		}
+		.gpu {
+		border: solid black 3px;
+		padding: 3px;
+		border-radius: 15px;
+		box-shadow: 6px 6px 1px gray;
+		background-color: #9e9e9e;
+		font-size: 1vw;
+		}
+		.cpu {
+		border: solid black 3px;
+		padding: 3px;
+		border-radius: 15px;
+		box-shadow: 6px 6px 1px gray;
+		background-color: #9e9e9e;
+		font-size: vw;
+		}
+		.plm {
+		border: solid black 3px;
+		padding: 3px;
+		border-radius: 15px;
+		box-shadow: 6px 6px 1px gray;
+		background-color: #9e9e9e;
+		font-size: 3vw;
+		}
+		ul {
+		font-family: "Fjalla One", sans-serif;
+		font-size:4vw;
+		}
+		button:hover {
+		background-color: var(--tx-color4);
+		box-shadow: 4px 4px 3px 3px black;
+		transform: scale(1.03);
+		}
+		a {
+		text-decoration: none;
+		color: var(--tx-color1);
+		}
+		a:hover {
+		text-decoration: underline;
+		}
+				.menuu {
+		position: fixed;
+		display: inline-block;
+		top: 3vw;
+		left: 85vw;
+		z-index: 111111111111111111;
+		
+		
+		}
+		.btnm {
+		 cursor: pointer;
+		 background-color:var(--fn-color);
+		border: 3px solid white;
+		border-radius: 15px;
+		padding: 13px;
+		color: var(--tx-color1);
+		font-size: 2vw;
+
+		}
+		.mencont {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 100000000000000000000000000000;
+		background-color: #ffffff;
+		max-height: 90vh;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		min-width: 120px;
+		max-width: 140px;
+		background-color:var(--fn-color);
+		border: 1px solid #ccc;
+        border-radius: 5px;
+		padding: 13px;
+		color: var(--tx-color1);
+		font-size: 4vw;
+		margin-top: 1vw;
+		overflow-y: auto;
+		}
+
+		.show {
+		display: block;
+		}
+		.mencont a {
+		display: block;
+		padding: 2vw;
+		text-decoration: none;
+		color: var(--tx-color1);
+		margin-top: 2vw;
+		border: 2px solid white;
+		background-color: #121212;
+		border-radius: 13px;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		transition: transform 0.5s;
+		}
+		.mencont a:hover {
+		transform: scale(1.05);
+		}
+		.color {
+		background-color:#1a1c27;
+		border: 3px solid white;
+		border-radius: 15px;
+		padding: 13px;
+		color: white;
+		font-size: 3vw;
+		margin-top: 10px;
+		}
+		.observacao {
+		  overflow-wrap: anywhere;
+		  white-space: pre-wrap;
+		  color: white;
+		}
+		.span {
+		color: white
+		}
+		.fll {
+		padding: 30px;
+		margin: 10px;
+		height: 600px;
+		justify-content: space-around;
+		background-color: #808080;
+		color: var(--tx-color1);
+		font-family: "Fjalla One", sans-serif;
+		font-size:
+		}
+	}
+	@media(min-width:981px) {
 	:root {
 		--bg-color: #10100f;
 		--tx-color1: white;
@@ -48,6 +233,7 @@
 	}
 	h2 {
 	font-family: "Fjalla One", sans-serif;
+	font-size: 2vw;
 	}
 	button {
 	cursor: pointer;
@@ -100,6 +286,7 @@
 		}
 		ul {
 		font-family: "Fjalla One", sans-serif;
+		font-size: 2vw;
 		}
 		button:hover {
 		background-color: var(--tx-color4);
@@ -180,6 +367,15 @@
 		font-size: 1vw;
 		margin-top: 10px;
 		}
+		.observacao {
+		  overflow-wrap: anywhere;
+		  white-space: pre-wrap;
+		  color: white;
+		}
+		.span {
+		color: white
+		}
+	}
 	</style>
 	</head>
 	<body id="body">
@@ -199,20 +395,21 @@
 		<div style=" position: relative; top: 150px;">
 		
 		<h1 id="titulo" style="text-align: center;"></h1>
-		<h2 style="color: var(--tx-color1);text-align:left; font-size: 2vw;">Medidas do dia:</h2>
+		<h2 style="color: var(--tx-color1);text-align:left; ">Medidas do dia:</h2>
 		<div class="fll" style="border: solid 2px black;border-radius: 15px;display: flex;">
 			<div>			
-				<ul style="text-align:left; font-size:2vw;">
+				<ul style="text-align:left;">
 					
-					<li>Ph medido: <span id="ph"></span></li>
-					<li>Cloro livre medido: <span id="clLivre"></span></li>
-					<li>Cloro combinado medido: <span id="clCombinado"></span></li>
-					<li>Alcalinidade medida: <span id="alcalinidade"></span></li>
-					<li>Dureza cálcica medida: <span id="durCalc"></span></li>
-					<li>Ácido cianúrico medido: <span id="acCian"></span></li>
-					<li>TDS medido: <span id="TDS"></span></li>
-					<li>Turbidez medida: <span id="turbidez"></span></li>
-					<li>Observações realizadas: <span id="obs"></span></li>
+					<li>Ph medido: <span class="span" id="ph"></span></li>
+					<li>Cloro livre medido: <span class="span" id="clLivre"></span></li>
+					<li>Cloro combinado medido: <span class="span" id="clCombinado"></span></li>
+					<li>Alcalinidade medida: <span class="span" id="alcalinidade"></span></li>
+					<li>Dureza cálcica medida: <span class="span" id="durCalc"></span></li>
+					<li>Ácido cianúrico medido: <span class="span" id="acCian"></span></li>
+					<li>TDS medido: <span class="span" id="TDS"></span></li>
+					<li>Turbidez medida: <span class="span" id="turbidez"></span></li>
+					<li>Observações realizadas: <span id="obs" class="observacao"></span></li>
+					<li>Casa: <span id="casa" class="observacao"></span></li>
 
 						<!--<ul>
 							<li><a style="font-size: 1vw;" href="Estatísticas.html">Estatísticas de Desepenho</a></li></p></li>
@@ -233,78 +430,130 @@
 				</ul>
 			</div>-->
 			</div>
+			<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 			<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				
+const banco = supabase.createClient(
+		"https://cnpoethknqlrxitzokte.supabase.co",
+		"sb_publishable_qn5fHfjNWyR57ROt8SySrQ_W-IB4Z2w"
+	  );
+
+document.addEventListener("DOMContentLoaded", function () {
+	const params = new URLSearchParams(window.location.search);
+	const dia = params.get("dia");
+
+	document.title = dia ? `Dia ${dia}` : "Registro da piscina";
+	document.getElementById("titulo").textContent =
+		dia ? `Dia ${dia}` : "Nenhum dia selecionado";
+
+	async function carregarRegistro() {
+		if (!dia) return;
+
+		const { data: registros, error } = await banco
+			.from("Controle de Piscina")
+			.select("*")
+			.eq("dia", dia)
+			.limit(1);
 
 
-				const params = new URLSearchParams(window.location.search);
-				const dia = params.get("dia");
-				document.title = dia;
+		if (error) {
+			console.error("Erro ao buscar registro:", error);
+			document.getElementById("titulo").textContent =
+				"Erro ao carregar o registro";
+			return;
+		}
 
-				const jogos = JSON.parse(localStorage.getItem("bibliotecaDias"));
-				const dados = jogos[dia];
-				
-				document.getElementById("titulo").textContent = `Dia ${dia}`;
-				document.getElementById("imagem").src = dados.codigo || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNhuyNpRU9riK92IQ7LWQm9MRCKm-yVWzK7UTLlcZf-w&s=10";
-				document.getElementById("ph").textContent = dados.ph || "Não informado";
-				document.getElementById("alcalinidade").textContent = `${dados.alcalinidade} ppm` || "Não informado";
-
-				document.getElementById("TDS").textContent = `${dados.TDS} ppm` || "Sem clCombinadoa";
-				document.getElementById("turbidez").textContent = `${dados.turbidez} ppm` || "Sem clCombinadoa";
-				document.getElementById("obs").textContent =  dados.obs || "Sem clCombinadoa";
-				document.getElementById("clCombinado").textContent = `${dados.clCombinado} ppm` || "Sem clCombinadoa";
-				document.getElementById("clLivre").textContent = `${dados.clLivre} ppm` || "clLivreo não registrado";
-				document.getElementById("durCalc").textContent = `${dados.durCalc} ppm` || "Não informado";
-				document.getElementById("acCian").textContent = `${dados.durCalc} ppm` || "Não informado";
-
-				console.log(jogos[dia]);
-				
-				const body = document.body;
-				const btnd = document.getElementById('btndk');
-				const btnl = document.getElementById('btnlg');
-				const cfg  = document.getElementById('btnc');
-				const con  = document.getElementById('cont');
-
-				// dia da página atual (ex: "biblioteca de jogos.html")
-				const page = location.pathname.split("/").pop();
-
-				// Chave única para cada página
-				const key = "theme_" + page;
-
-				// Carregar tema salvo
-				const savedTheme = localStorage.getItem(key);
-
-				if (savedTheme === "dark") {
-					body.classList.add("dark-mode");
-					body.classList.remove("light-mode");
-				} else {
-					body.classList.add("light-mode");
-					body.classList.remove("dark-mode");
-				}
-
-				// Botão modo escuro
-				btnd.addEventListener("click", function () {
-					body.classList.remove("light-mode");
-					body.classList.add("dark-mode");
-					localStorage.setItem(key, "dark");
-				});
-
-				// Botão modo claro
-				btnl.addEventListener("click", function () {
-					body.classList.remove("dark-mode");
-					body.classList.add("light-mode");
-					localStorage.setItem(key, "light");
-				});
-
-				// Mostrar/ocultar configurações
-				cfg.addEventListener("click", function () {
-					con.classList.toggle("show");
-				});
-
-			});
+		const dados = registros?.[0];
 
 
-		</script>
+		if (!dados) {
+			document.getElementById("titulo").textContent =
+				`Nenhum registro encontrado para ${dia}`;
+			return;
+		}
+
+		const { data: casa, error: erroCasa } = await banco
+			.from("Casas")
+			.select("casa")
+			.eq("id", dados.id_casa)
+			.maybeSingle();
+
+			if (erroCasa) {
+			console.error("Erro ao buscar a casa:", erroCasa);
+			document.getElementById("titulo").textContent =
+				"Erro ao carregar a casa";
+			return;
+		}
+
+		const mostrar = (valor, unidade, textoVazio) =>
+			valor === null || valor === undefined || valor === ""
+				? textoVazio
+				: `${valor}${unidade}`;
+
+		document.getElementById("imagem").src =
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka65kV9IPeZQ8e5s3lATdqYM_XN-84ljKGS4pL6UvIQ&s=10";
+
+		document.getElementById("ph").textContent =
+			mostrar(dados.Ph, "", "Sem pH informado");
+		document.getElementById("clLivre").textContent =
+			mostrar(dados.clLivre, " ppm", "Sem cloro livre informado");
+		document.getElementById("clCombinado").textContent =
+			mostrar(dados.clComb, " ppm", "Sem cloro combinado informado");
+		document.getElementById("alcalinidade").textContent =
+			mostrar(dados.alcalinidade, " ppm", "Sem alcalinidade informada");
+		document.getElementById("durCalc").textContent =
+			mostrar(dados.durCal, " ppm", "Sem dureza cálcica informada");
+		document.getElementById("acCian").textContent =
+			mostrar(dados.acCian, " ppm", "Sem ácido cianúrico informado");
+		document.getElementById("TDS").textContent =
+			mostrar(dados.TDS, " ppm", "Sem TDS informado");
+		document.getElementById("turbidez").textContent =
+			mostrar(dados.turbidez, " ppm", "Sem turbidez informada");
+		document.getElementById("casa").textContent =
+ 			 casa?.casa ?? "Casa não encontrada";
+
+		document.getElementById("obs").textContent =
+			dados.observacoes ??
+			dados["observações"] ??
+			dados["Observações"] ??
+			"Sem observações";
+	}
+
+	carregarRegistro();
+
+	const body = document.body;
+	const btnd = document.getElementById("btndk");
+	const btnl = document.getElementById("btnlg");
+	const cfg = document.getElementById("btnc");
+	const con = document.getElementById("cont");
+
+	const page = location.pathname.split("/").pop();
+	const key = "theme_" + page;
+	const savedTheme = localStorage.getItem(key);
+
+	if (savedTheme === "dark") {
+		body.classList.add("dark-mode");
+		body.classList.remove("light-mode");
+	} else {
+		body.classList.add("light-mode");
+		body.classList.remove("dark-mode");
+	}
+
+	btnd.addEventListener("click", function () {
+		body.classList.remove("light-mode");
+		body.classList.add("dark-mode");
+		localStorage.setItem(key, "dark");
+	});
+
+	btnl.addEventListener("click", function () {
+		body.classList.remove("dark-mode");
+		body.classList.add("light-mode");
+		localStorage.setItem(key, "light");
+	});
+
+	cfg.addEventListener("click", function () {
+		con.classList.toggle("show");
+	});
+});
+</script>
 	</body>
 </html>

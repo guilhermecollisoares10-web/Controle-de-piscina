@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Biblioteca</title>
-		<link rel="stylesheet" href="CSS.css">
 		<link rel="stylesheet" href="menuFixo.css">	
 		<link rel="stylesheet" href="CSSPagPrinc.css">		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -45,8 +44,8 @@
 		right: 20px;
 		}
 		:root {
-			--bg-color: #0f141a;
-			--tx-color1: white;
+			--bg-color: #white;
+			--tx-color1: black;
 			--fn-color: #314c53;
 			--tx-color4: black;
 			--cb-color: #121212;
@@ -63,8 +62,8 @@
 		}
 
 		.dark-mode {
-			--bg-color: #0f141a;
-			--tx-color1: white;
+			--bg-color: white;
+			--tx-color1: black;
 			--tx-color4: black;
 			--cb-color: #121212;
 			--fn-color: #314c53;
@@ -77,7 +76,10 @@
 			background-color: var(--bg-color);
 			transition: background-color 0.3s, color 0.3s;
 		}
-
+		#pgPrinc {
+		position: relative;
+		z-index: 2;
+		}
 		h1 {
 			font-family: "Montserrat", sans-serif;
 			font-size:3vw;
@@ -247,7 +249,7 @@
 			background-color: var(--cb-color);
 			padding: 10px;
 			font-size: 20px;
-			color: var(--tx-color1);
+			color: white;
 		}
 
 		.nm2 {
@@ -283,37 +285,37 @@
 
 		.btnm {
 			cursor: pointer;
+			position: relative;
+			top: 10vw;
 			background-color:var(--fn-color);
 			border: 3px solid white;
 			border-radius: 15px;
 			padding: 13px;
 			color: var(--tx-color1);
-			font-size: 1vw;
+			font-size: 3vw;
+			text-decoration: underline;
 		}
 
 		.mencont {
 			position: absolute;
-			top: 100%;
-			left: 0;
-			z-index: 100000000000000000000000000000;
+			top: 18vw;
+			right: 40px;
+			max-height: 0;
+			z-index: 999999;
 			background-color: #ffffff;
-			max-height: 90vh;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 			min-width: 120px;
-			max-width: 140px;
+			max-width: 1400px;
 			background-color:var(--fn-color);
 			border: 1px solid #ccc;
 			border-radius: 5px;
-			padding: 13px;
+			padding: 15px;
 			color: var(--tx-color1);
-			font-size: 1vw;
+			font-size: 3vw;
 			margin-top: 1vw;
 			overflow-y: auto;
 			opacity: 0;
-			max-height: 0;
 			overflow: hidden;
 			transition: opacity 0.4s ease, max-height 0.4s ease;
-			max-height: 500px; /* um valor grande o suficiente */
 		}
 		
 		.mencont a {
@@ -455,6 +457,11 @@
 .login.show {
   pointer-events: auto;
 }
+.mencont.show {
+		opacity: 1;
+		max-height: 500px;
+		pointer-events: auto;
+		}
 }
 
 @media (min-width:981px){
@@ -898,7 +905,7 @@
 			
 			<div style="position:relative; top: 90px;right: 1%;">
 				<button style="font-size: 50px;"class="close" id="close">X</button>
-				<button id="entrar" style="font-size: 40px;position: relative;left: 365px;top: 50px;background-color: green;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
+				<button id="entrar" style="font-size: 40px;position: relative;left: 365px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
 				
 				<p style="position: relative; top: 40px;margin: 40px;color: black;"><span id="loginSit" style="font-size: 50px;"></span></p>
 			</div>
@@ -925,7 +932,7 @@
 			</div>
 			
 			<div style="position:relative; top: 90px;right: 1%;">
-				<button id="criarConta" style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: green;border-radius: 12px;border: none;padding: 20px;">Criar conta</button>
+				<button id="criarConta" style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Criar conta</button>
 				<p style="position: relative; top: 40px;margin: 30px;color: black"><span style="color: black;font-size: 50px" id="cadastroSit"></span></p>
 			</div>
 			<button id="elogin" style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;" >Login</button>
@@ -940,23 +947,23 @@
 			<div class="criarCasa">
 				<label style="font-size: 3.5vw;margin-right: 10px;" for="nomeCasa">Digite o Nome da Casa a ser criada:</label>
 				<input style="font-size: 3vw;" type="text" id="nomeCasa" placeholder="Digite o nome da casa">
-				<button id="addCasa" style="position: relative;top: 100px; right: 500px;text-decoration:underline;color: blue;background-color:  white;border: none;">Adicionar casa</button>	
+				<button id="addCasa" style="position: relative;top: 130px; right: 500px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;">Adicionar casa</button>	
 			</div>
-			<div style="position: relative; left: 2%;top 2%;">				
-				<p style="width: 50%;color: black;position: relative; top: 70px; margin: 30px"><span id="casaStatus"></span></p><br>
-				<p style="width: 50%;color: black;position: relative; top: 110px;margin: 30px"><span id="casasDisponiveis"></span></p>
+			<div style="position: relative; left: 2%;top 2%;pointer-events: none;">				
+				<p style="width: 50%;color: black;position: relative; top: 110px; margin: 30px"><span id="casaStatus"></span></p><br>
+				<p style="width: 50%;color: black;position: relative; top: 150px;margin: 30px"><span id="casasDisponiveis"></span></p>
 			</div>
 			
 		</div>
 
 		<div  style="align-items:center" class="login" id="pnlCodigoProp">
-			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Teste</h1>
+			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Gerar Código</h1>
 			<div class="criarCasa">
 				<label style="font-size: 3.5vw;margin-right: 10px;" for="casaConvite">Selecione a casa do convite:</label>
 				<select style="position: relative;left: 10px;border: black 1px solid" id="casaConvite">
 					<option value="">Selecione uma casa</option>
 				</select>
-			<button style="position: relative;top: 90px; right: 400px;text-decoration:underline;color: blue;background-color:  white;border: none;" type="button" id="gerarConvite">Gerar convite</button>
+			<button style="font-size: 30px;position: relative;top: 90px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="gerarConvite">Gerar convite</button>
 			
 			</div>
 			<p style="width: 50%;color: black;position: relative; top: 100px; left: 400px;margin: 30px;font-size: 4vw;";><span id="conviteStatus"></span></p>
@@ -967,20 +974,20 @@
 			  <button type="button" id="aceitarConvite">Vincular à casa</button>		
 			</div> 	-->
 		</div>	
-		<div id="pgPrinc" class="menu" style="transform: scale(1.1)">
+		<div  id="pgPrinc" class="menu">
 		
 			<div class="abn" ><a style="font-size: 30px;" href="Adicionar_informação.html"><button class="btna" style="font-size: 25px;">Adicionar Registro</button></a></div>
 
-			<h1 class="bar" ><div style="font-size: 35px"class="bib">Controle Piscina</div></h1>	
+			<h1 class="bar" ><div style="font-size: 45px"class="bib">Controle Piscina</div></h1>	
 
 			<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>
 
 			<div class="menuu">
-				<button id="btnc" class="btnm"> Configurações <br><i class="material-symbols-outlined">settings</i></button>
+				<button id="btnc" class="btnm"> Filtrar</button>
 
 				<div id="cont" class="mencont">
-					 <button id="btndk" class="color">modo escuro</button>
-					  <button id="btnlg" class="color">modo claro</button>
+					 <button class="color"><select class="sel" id="selCasa"><option value="todos">Todos</option></select></button>
+					  <button  class="color">modo claro</button>
 				</div>
 
 			</div>
@@ -989,7 +996,7 @@
 
 		<div class="men" onclick="close()">
 			
-			<h2 style="text-align: center;font-size: 40px;position:relative; top: 20px;">Bem vindo, <span id="user" style="font-style:italic; font-size: 45px;"></span> :Controle de Piscina<select class="sel" id="selCasa"><option value="todos">Todos</option><</select>:</h2>
+			<h2 style="text-align: center;font-size: 40px;position:relative; top: 20px;">Bem vindo, <span id="user" style="font-style:italic; font-size: 45px;"></span> :Controle de Piscina:</h2>
 		
 			<div class="table">
 				<div class="table1" id="painel"></div>			

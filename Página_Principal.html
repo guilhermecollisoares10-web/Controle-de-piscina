@@ -1265,9 +1265,13 @@
 
 			  return null;
 			}
-
-			document.getElementById("sair").addEventListener("click", async function () {
-			  const { error } = await banco.auth.signOut();
+			const botoesX = [
+				document.getElementById("sair"),
+				document.getElementById("sairPi")
+			];
+			botoesX.forEach(botao => {
+			botao.addEventListener("click", async function () {
+			const { error } = await banco.auth.signOut();
 
 			  if (error) {
 				console.error("Erro ao deslogar:", error);
@@ -1276,6 +1280,7 @@
 
 			  localStorage.removeItem("loginEfetuado");
 			  location.reload();
+			});
 			});
 
 			let loginRealizado = "";

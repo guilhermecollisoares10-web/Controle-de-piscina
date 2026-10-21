@@ -1,31 +1,34 @@
+		
 		@media (max-width:980px){
 		.men {
 		position:relative;
 		top: 20vw;
+		z-index: 1;
 		}
 		.bar {
 		color: var(--tx-color1);
 		position:fixed;
-		top: 3.4vw;
+		top: 13.4vw;
 		left: 29.5vw;
 		z-index:100000;
 		height: 5vw;
 		text-align: center;
 		margin: 0;
 		text-decoration:none;
-		border: 1px #0f141a solid;
+		border: none;
 		border-radius: 15px;
 		width: 40vw;
+		text-decoration: underline;
 		}
 		.bib {
 		position:relative;
 		top:0;
-		bottom: 3.5vw;
-		background-color: var(--fn-color);
+		bottom: 13.5vw;
+		background-color: none;
 		width: 40vw;
 		position:relative;
 		left: 0;
-		border: 1px #0f141a solid;
+		border: none;
 		border-radius: 15px;
 		text-decoration:none;
 		height: 5vw;
@@ -38,7 +41,7 @@
 		.zrd {
 		position:fixed;
 		left:3vw;
-		top: 3vw;
+		top: 13vw;
 		width:auto;
 		border: 1px #1f1f1f solid;
 		border-radius: 15px;
@@ -54,14 +57,15 @@
 		.abn {
 		position:fixed;
 		left:5vw;
-		top: 3vw;
+		top: 13vw;
 		width:auto;
-		border: 1px #1f1f1f solid;
+		border: none;
 		border-radius: 15px;
 		}
 		.btna {
 		background-color: var(--fn-color);
 		border: 3px solid white;
+		text-decoration: underline;
 		border-radius: 15px;
 		padding: 13px;
 		color: var(--tx-color1);
@@ -70,13 +74,14 @@
 		.est {
 		position:fixed;
 		left:70vw;
-		top: 3vw;
+		top: 13vw;
 		width:auto;
-		border: 1px #1f1f1f solid;
+		border: none;
 		border-radius: 15px;
 		}
 		.btne {
 		background-color: var(--fn-color);
+		text-decoration: underline;
 		border: 3px solid white;
 		border-radius: 15px;
 		padding: 13px;

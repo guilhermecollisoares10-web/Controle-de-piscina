@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Biblioteca</title>
+		<title>Controle Piscina</title>
 		<link rel="stylesheet" href="menuFixo.css">	
 		<link rel="stylesheet" href="CSSPagPrinc.css">		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 		<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home,logout,search,start&display=block">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home,logout,search,text_select_jump_to_end,add,start&display=block">
 		<style>
 		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -453,7 +453,7 @@
 		.login:not(.show) {
   pointer-events: none;
 }
-
+s
 .login.show {
   pointer-events: auto;
 }
@@ -877,16 +877,19 @@
 				<button  id="sair" class="btnSai"type="button"><span class="material-symbols-outlined">logout</span>  Deslogar</button>	
 				<button  id="add" class="btnAdd" type="button"><span class="material-symbols-outlined">home</span>  Criar casa</button>
 				<button  id="xx" class="btnSai"type="button" ><span class="material-symbols-outlined">start</span>  Gerar código</button>	
+				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;" href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar Registro</button></a>
 				<button  id="yy" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>  Pesquisa</button>
 				</div>
 			</div>
 
-			<div class="teste" style="display: flex;flex-direction: column;position: relative;" id="pisc">
+			<div class="teste" style="display: flex;flex-direction: column;" id="pisc">
 				<h1 style="color: black;font-size: 50px;">Piscineiro</h1>
-				<button  id="sairPi" class="btnSai"type="button">  Deslogar</button>	
-				<button  id="addPi" class="btnAdd" type="button">  Criar casa</button>
-				<button  id="xxPi" class="btnSai"type="button">  Gerar código</button>	
-				<button  id="yyPi" class="btnAdd" type="button">  Pesquisa</button>
+				<div class="tstBtn"style="display: flex;flex-direction: column; align-items:  flex-start;">
+				<button  id="sairPi" class="btnSai"type="button"><span class="material-symbols-outlined">logout</span>  Deslogar</button>	
+				<button  id="xxPi" class="btnSai"type="button"><span class="material-symbols-outlined">text_select_jump_to_end</span> Receber código</button>
+				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;" href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar Registro</button></a>	
+				<button  id="yyPi" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>  Pesquisa</button>
+				</div>
 			</div>
 		</div>
 
@@ -963,22 +966,28 @@
 				<select style="position: relative;left: 10px;border: black 1px solid" id="casaConvite">
 					<option value="">Selecione uma casa</option>
 				</select>
-			<button style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="gerarConvite">Gerar convite</button>
+			<button style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="gerarConvite">Gerar convite de convite</button>
 			
 			</div>
 			<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;";><span id="conviteStatus"></span></p>
-			<!--<div style="position: relative; top: 150px; left: 2%;">			  
-			  <p style="width: 50%;color: black;"><span id="conviteAceiteStatus"></span></p>
-			  <label for="codigoConvite">Código recebido do proprietário:</label>
-			  <input type="text" id="codigoConvite" placeholder="Digite o código do convite">	
-			  <button type="button" id="aceitarConvite">Vincular à casa</button>		
-			</div> 	-->
 		</div>	
+		<div  style="align-items:center" class="login" id="pnlCodigoPisc">
+			
+			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Receber Código</h1>
+			<div class="criarCasa">
+				<label style="font-size: 3.5vw;margin-right: 10px;" for="codigoConvite">Código recebido do proprietário:</label>
+				<input type="text" style="position: relative;left: 10px;border: black 1px solid" id="codigoConvite" placeholder="Digite o código"> 
+			<button style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="aceitarConvite">Vincular à casa</button>
+			
+			</div>
+			<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;";><span id="conviteAceiteStatus"></span></p>
+			<p style="width: 50%;color: black;position: relative; top: 170px;margin: 30px"><span id="casasDisponiveisPi"></span></p>
+			
+		</div>
 		<div  id="pgPrinc" class="menu">
 		
-			<div class="abn" ><a style="font-size: 30px;" href="Adicionar_informação.html"><button class="btna" style="font-size: 25px;">Adicionar Registro</button></a></div>
 
-			<h1 class="bar" ><div style="font-size: 45px"class="bib">Controle Piscina</div></h1>	
+			<h1 class="bar" ><div style="font-size: 60px;"class="bib">Controle Piscina</div></h1>	
 
 			<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>
 
@@ -986,8 +995,9 @@
 				<button id="btnc" class="btnm"> Filtrar</button>
 
 				<div id="cont" class="mencont">
-					 <button class="color"><select class="sel" id="selCasa"><option value="todos">Todos</option></select></button>
-					  <button  class="color">modo claro</button>
+					<p style="color: white;">Filtrar por casa/dia do registro</p> 
+					<button class="color"><select class="sel" id="selCasa"></select></button>
+					 <button  class="color"><label for="dia">Filtrar por dia:</label><input type="date"></button>
 				</div>
 
 			</div>
@@ -1017,12 +1027,13 @@
 			const botaoAdicionarCasa = document.getElementById("addCasa");
 			const statusDaCasa = document.getElementById("casaStatus");
 			const listaCasas = document.getElementById("casasDisponiveis");
+			const listaCasasPi = document.getElementById("casasDisponiveisPi");
 			const seletorCasaConvite = document.getElementById("casaConvite");
 			const botaoGerarConvite = document.getElementById("gerarConvite");
 			const statusConvite = document.getElementById("conviteStatus");
-			//const campoCodigoConvite = document.getElementById("codigoConvite");
-			//const botaoAceitarConvite = document.getElementById("aceitarConvite");
-			//const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
+			const campoCodigoConvite = document.getElementById("codigoConvite");
+			const botaoAceitarConvite = document.getElementById("aceitarConvite");
+			const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
 			const voltar = document.getElementById("voltar");
 			const elogin = document.getElementById("elogin");
 			const yy = document.getElementById("yy");
@@ -1089,16 +1100,29 @@
 			if (casas.length === 0) {
 			  statusDaCasa.textContent = "Nenhuma casa disponível para esta conta.";
 			  listaCasas.textContent = "";
+			  listaCasasPi.textContent = "";
 			  return;
 			}
 
 			statusDaCasa.textContent = "";
-			listaCasas.textContent = `Casas disponivéis para ${user.textContent}: ${casas.map(casa => casa.casa).join(", ")}`;
+			listaCasas.innerHTML =`Casas disponíveis para ${user.textContent}(Propirtário): ` + casas.map(casa => casa.casa).join(",<br>");
+			listaCasasPi.innerHTML =`Casas disponíveis para ${user.textContent}(Piscineiro): ` + casas.map(casa => casa.casa).join(",<br>");
 			
 			}
-			yy.addEventListener('click', function() {
+			const botoesY = [
+				document.getElementById("yy"),
+				document.getElementById("yyPi")
+			];
+			botoesY.forEach(botao => {
+			botao.addEventListener("click", function () {
 				document.getElementById('pnlCasa').classList.remove('show')
+				document.getElementById('pnlCodigoPisc').classList.remove('show')
 				document.getElementById('pnlCodigoProp').classList.remove('show')
+				menuLateral.classList.remove('mostrar')	
+			});
+			});
+			document.getElementById('xxPi').addEventListener('click', function() {
+				document.getElementById('pnlCodigoPisc').classList.add('show')
 				menuLateral.classList.remove('mostrar')				
 			})
 			xx.addEventListener('click', function() {
@@ -1192,7 +1216,7 @@
 				`Convite: ${codigo} — válido por 24 horas. Compartilhe esse código com o piscineiro.`;
 			});
 			
-			/*botaoAceitarConvite.addEventListener("click", async function () {
+			botaoAceitarConvite.addEventListener("click", async function () {
 			  const codigo = campoCodigoConvite.value.trim();
 
 			  if (!codigo) {
@@ -1217,7 +1241,7 @@
 			  campoCodigoConvite.value = "";
 
 			  await carregarCasasDisponiveis();
-			});*/
+			});
 
 			async function garantirPerfil(conta, tipoSelecionado = null) {
 			  const nomePerfil =

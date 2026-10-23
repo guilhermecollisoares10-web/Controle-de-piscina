@@ -2,155 +2,17 @@
 <html>
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> Adicionar Jogos</title>
+	<title> Adicionar Registros</title>
 	<link rel="stylesheet" href="CSS.css">
 	<link rel="stylesheet" href="menuFixo.css">	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=add_circle,visibility,home,delete_forever,clear_all&display=block">
 	</head>
 	<style>
-	@media (min-width: 431px) and (max-width: 1455px) {
-		:root {
-		--bg-color: #0f141a;
-		--tx-color1: white;
-		--fn-color: #314c53;
-		--tx-color4: black;
-		--cb-color: #121212;
-		transition: background-color 0.3s, color 0.3s;
-		}
-		
-		* {
-		font-family: "Montserrat", sans-serif;
-		}
-	body {
-	background-color: var(--bg-color);
-	}
-	p {
-	color: var(--tx-color1);
-	}
-	h1 {
-	color: var(--tx-color1);
-	font-size: 30px;
-	}
-	
-	label {
-	color: var(--tx-color1);
-	font-size: 20px;
-	}
-	
-	input {
-	padding: 20px;
-	width: 45%;
-	height: 10%;
-	background-color: var(--tx-color1);
-	color: var(--tx-color4);
-	margin: 10px;
-	border-radius: 13px;
-	}
-	
-	button {
-	cursor: pointer;
-	margin-bottom: 10px;
-	transition: transform 0.5s ease, border-radius 0.5s ease;
-	}
-	
-	.card-jogo {
-    width: 180px;
-    height: 260px;
-    background: #1e1e1e;
-    color: var(--tx-color2);
-    border: none;
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.2s;
-	margin-right: 30px;
-	text-align: center;
-	justify-content: center;
-	}	
-	
-	.linha-jogos {
-	display: flex;
-	flex-direction: row;
-	overflow-x: scroll;
-	}
-	
-	.dia-jogo {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--tx-color2);
-	position: relative;
-	right: 15px;
-	font-size: 30px;
-	}
-	
-	.jogo-container {
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	}
-	
-	.imagem-real {
-		width: 100%;
-		height: 100%;
-		border-radius: 8px;
-	}
-	
-	button:hover {
-	transform: scale(1.2);
-	border-radius: 15px;
-
-	}
-	
-	.bar {
-	font-family: "Fjalla One", sans-serif;
-	font-size: 3vw;
-	}
-	
-	.container {
-	position: relative;
-	top: 150px;
-	}
-	
-	.buttons {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	left: 1000px;
-	bottom: 550px;
-	width: 200px;
-	margin-bottom: 10px;
-	}
-	
-	.panel {
-	position: relative;
-	bottom: 400px;
-	}
-	
-	.cards {
-	  border-radius: 40%;
-	   width: 100px;
-	}
-	.bib {
-	position: relative;
-	left: 220px;
-	}
-		.title {
-	position: relative;
-	left: 500px;
-	top: 150px;
-	}
-	}
-	@media(max-width:430px) {
+@media(max-width:980px) {
 	:root {
-		--bg-color: #0f141a;
-		--tx-color1: white;
-		--fn-color: #314c53;
+		--bg-color: white;
+		--tx-color1: black;
 		--tx-color4: black;
-		--cb-color: #121212;
 		transition: background-color 0.3s, color 0.3s;
 		}
 		
@@ -177,7 +39,7 @@
 	padding: 20px;
 	width: 50%;
 	height: 10%;
-	background-color: var(--tx-color1);
+	background-color: var(--bg-color);
 	color: var(--tx-color4);
 	margin: 10px;
 	border-radius: 13px;
@@ -255,39 +117,47 @@
 	
 	.buttons {
 	display: flex;
-	flex-direction: column;
-	position: relative;
-	left: 250px;
-	bottom: 950px;
-	width: 200px;
+	flex-direction: row;
+	width: 50px;
 	margin-bottom: 10px;
 	}
 	.buttons > button {
 		margin-bottom: 40px;
 
 	}
-	.panel {
-	position: relative;
-	bottom: 400px;
-	}
 	
-	.cards {
-	  border-radius: 40%;
-	   width: 100px;
-	}
 	.bib {
 	position: relative;
 	left: 60px;
 	transform: scale(2.5);
 	margin-top: 20px;
 	}
-		.title {
+	.title {
 	position: relative;
 	left: 70px;
 	top: 150px;
 	}
+	.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
 	}
-	@media(min-width:1456px) {
+	
+	@media(min-width:981px) {
 	:root {
 		--bg-color: #0f141a;
 		--tx-color1: white;
@@ -427,10 +297,10 @@
 	</style>
 	<body>
 	<p class="login">Login Realizado em: <span id="login" style="font-style:italic"></span></p>
-	<h1 class="bar" style="position:fixed;top:7vw;left: 30vw;"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div style="position:fixed;top:7vw;left: 30vw;" class="bib" >Controle Piscina</div></a></h1>
+	<h1 class="bar" style="position:fixed;top:7vw;left: 30vw;"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div style="text-decoration: underline; position:fixed;top:7vw;left: 30vw;" class="bib" >Controle Piscina <span class="material-symbols-outlined">home</span></div></a></h1>
 	<h1 class="title"> Adicionar/ Atualizar/ Remover Registro da Biblioteca</h1>	
 	<div class="container">
-	<p>Não é necessário que todas as informações sejam preenchidas para adicionar um dia, é possivel apenas colocar aquilo que voce deseja e, se preciso, é possivel adicionar depois</p>
+	<p>Não é necessário que todas as informações sejam preenchidas para adicionar um dia, é possivel apenas colocar apenas aquilo registrado e, se preciso, é possivel adicionar depois</p>
 		<label for="dia">Selecione o dia:</label>
 		<input type="date" id="dia"><br>
 		<label for="ph">Digite o Ph medido:</label>
@@ -456,21 +326,20 @@
 		<input type="text" id="obs" placeholder="Digite as Observações"><br>
 		
 		<!--Novas infomações!-->
-		<select id="selCasa" style="padding: 30px; background-color: black; color: var(--tx-color1);border-radius: 13px; cursor: pointer;margin: 20px;width: 200px;">
+		<select id="selCasa" style="padding: 30px; background-color: white; color: var(--tx-color1);border-radius: 13px; cursor: pointer;margin: 20px;width: 200px;">
 		</select><br>
 		
 		<!--<label for="img">Selecione uma imagem para o jogo:</label>
 		<input type="text" id="img" placeholder="Digite o codigo da imagem"><br>-->
-		<select id="sel" style="padding: 30px; background-color: black; color: var(--tx-color1);border-radius: 13px; cursor: pointer;">
+		<select id="sel" style="padding: 30px; background-color: white; color: var(--tx-color1);border-radius: 13px; cursor: pointer;">
 		</select>
-		<div class="buttons" >
-			<button class="cards" style="margin-left: 20px; background-color: #314c53;width: 150px;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="add">Adicionar/atualizar</button>
-			<button class="cards" style="margin-left: 20px; background-color: #314c53; padding: 20px;color: var(--tx-color1); border: 4px var(--tx-color1) solid;" id="exc" >Excluir</button>
-			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="exi" >Exibir</button>
-			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="limp" >Limpar lista</button>
-			<button class="cards" style="margin-left: 20px; background-color: #314c53;color: var(--tx-color1); padding: 20px; border: 4px var(--tx-color1) solid;" id="show" >Mostrar Registros</button>
+		<div class="buttons" style="margin-top: 40px;" >
+			<button class="cards" style=" background-color: white;width: 150px;color: var(--tx-color1); padding: 10px; border: none" id="add">Adicionar/atualizar<br><span class="material-symbols-outlined">add_circle</span></button>
+			<button class="cards" style=" background-color: white; padding: 10px;color: var(--tx-color1); border: none;" id="exc" >Excluir Registro<br><span class="material-symbols-outlined">clear_all</span></button>
+			<button class="cards" style=" background-color: white;color: var(--tx-color1); padding: 10px; border: none;" id="exi" >Exibir<br><span class="material-symbols-outlined">visibility</span></button>
+			<button class="cards" style="background-color: white;color: var(--tx-color1); padding: 10xp; border: none;" id="limp" >Limpar Todos os Registros<br><span class="material-symbols-outlined">delete_forever</span></button>
 		</div>
-		<p class="panel" style="padding: 70px;color: var(--tx-color1);" id="painel"></p>
+		<p style="padding: 70px;color: black;" id="painel"></p>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script>
@@ -500,7 +369,6 @@
 		let exibir = document.getElementById('exi')
 		let limpar = document.getElementById('limp')
 		let salvar = document.getElementById('sal')
-		let mostrar = document.getElementById('show')
 		let painel = document.getElementById('painel')
 		let situação_atual = 'nulo'
 		// Criamos o objeto vazio
@@ -531,26 +399,48 @@
 }
 carregarSelectCasa();
 
-		function mostrarJogosBonito() {
+		async function mostrarJogosBonito() {
 			painel.innerHTML = ""; // limpa o painel
+			const { data: dados, error } = await banco
+				.from("Controle de Piscina")
+				.select("*")
+				.order("dia", { ascending: false });
+			console.log(dados)
+			if (error) {
+				painel.textContent = `Erro ao encontrar registros, ${error}`;
+				return
+			}
+			else if (dados.length == 0) {
+				painel.textContent = `Sem registros`;
+				return
+			}
+			else {
+			for (const piscina of dados) {
+				const { data: casas} = await banco
+					.from("Casas")
+					.select("casa")
+					.eq("id", piscina.id_casa)
 
-			for (let [dia, dados] of Object.entries(jogos)) {
 				painel.innerHTML += `
 					<p>
-						<strong>${dia}</strong><br>
-						ph: ${dados.ph}<br>
-						clCombinado: ${dados.clCombinado}<br>
-						clLivre: ${dados.clLivre}<br>
-						alcalinidade: ${dados.alcalinidade}<br>
-						durCalc: ${dados.durCalc}<br>
-						acCian: ${dados.acCian}<br>	
-						TDS: ${dados.TDS}<br>
-						turbidez: ${dados.turbidez}
+						<strong>${piscina.dia}</strong><br>
+						ph: ${piscina.Ph}<br>
+						clCombinado: ${piscina.clComb}<br>
+						clLivre: ${piscina.clLivre}<br>
+						alcalinidade: ${piscina.alcalinidade}<br>
+						durCalc: ${piscina.durCal}<br>
+						acCian: ${piscina.acCian}<br>	
+						TDS: ${piscina.TDS}<br>
+						turbidez: ${piscina.turbidez}<br>
+						casa: ${casas[0]["casa"]}<br>
+						Criado por: ${piscina.usuario}<br>
 					</p>
 					<hr>
 				`;
 			}
 		}
+		}
+		mostrarJogosBonito()
 		
 		
 		function cleanInput() {
@@ -652,8 +542,8 @@ carregarSelectCasa();
 
 		  const [dia, ph, clCombinado, acCian, alcalinidade, durCal, clLivre, TDS, turbidez, observacoes, id_casa] = lista;
 
-		  if (!dia) {
-			painel.textContent = "Selecione o dia.";
+		  if (!dia || !id_casa) {
+			painel.textContent = "Selecione a casa";
 			return;
 		  }
 
@@ -686,6 +576,7 @@ carregarSelectCasa();
 					.from("Controle de Piscina")
 					.update(camposDoRegistro)
 					.eq("Usuário", idSelecionado)
+					.eq("id_casa", id_casa)
 				: await banco
 					.from("Controle de Piscina")
 					.insert(registro);
@@ -754,7 +645,6 @@ carregarSelectCasa();
 			painel.textContent = `${data.length} registro(s) removido(s) do banco.`;
 			cleanInput();
 		});
-	mostrar.addEventListener('click', () => location.reload());
 let registroSelecionadoId = null;
 
 
@@ -824,46 +714,9 @@ carregarSelect();
 
 
 
-function mostrarJogosComoCards() {
-    painel.innerHTML = "";
 
-    let container = document.createElement("div");
-    container.className = "linha-jogos";
-
-    for (let [dia, dados] of Object.entries(jogos)) {
-
-        // contêiner externo que agrupa dia + card
-        let jogoContainer = document.createElement("div");
-        jogoContainer.className = "jogo-container";
-
-
-        let diaDiv = document.createElement("div");
-        diaDiv.className = "dia-jogo";
-        diaDiv.textContent = dia;
-
-
-        let card = document.createElement("button");
-        card.className = "card-jogo";
-
-       card.innerHTML = `
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka65kV9IPeZQ8e5s3lATdqYM_XN-84ljKGS4pL6UvIQ&s=10" class="imagem-real">
-`;
-
-		card.addEventListener("click", function() {
-			window.location.href = `Controle_dia.html?dia=${encodeURIComponent(dia)}`;
-		});
-
-        // montar estrutura
-        jogoContainer.appendChild(diaDiv);
-        jogoContainer.appendChild(card);
-
-        container.appendChild(jogoContainer);
-    }
-
-    painel.appendChild(container);
-}
 console.log(loginEfetuado);
-mostrarJogosComoCards()
+
 		console.log(jogos)
 	</script>
 	</body>

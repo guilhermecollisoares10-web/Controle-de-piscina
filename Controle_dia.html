@@ -6,33 +6,17 @@
 		<link rel="stylesheet" href="CSS.css">
 		<link rel="stylesheet" href="menuFixo.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-	
+	 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home&display=block">
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
 	@media(max-width:981px) {
 		:root {
-		--bg-color: #10100f;
-		--tx-color1: white;
+		--bg-color: white;
+		--tx-color1: black;
 		--fn-color: #314c53;
 		--tx-color4: black;
 		--cb-color: #121212;
-		transition: background-color 0.3s, color 0.3s;
-		}
-		.light-mode {
-		--bg-color: #fdf2c5;
-		--tx-color1: #000000;
-		--tx-color4: #efd8a4;
-		--cb-color: #e7edea;
-		--fn-color: #ffffff;
-		transition: background-color 0.3s, color 0.3s;
-		}
-		.dark-mode {
-		--bg-color: #10100f;
-		--tx-color1: white;
-		--tx-color4: #2b2726;
-		--cb-color: #121212;
-		--fn-color: #314c53;
 		transition: background-color 0.3s, color 0.3s;
 		}
 		body {
@@ -178,10 +162,11 @@
 		.observacao {
 		  overflow-wrap: anywhere;
 		  white-space: pre-wrap;
-		  color: white;
+		  color: black;
 		}
 		.span {
-		color: white
+		color: black;
+
 		}
 		.fll {
 		padding: 30px;
@@ -193,6 +178,31 @@
 		font-family: "Fjalla One", sans-serif;
 		font-size:
 		}
+		table, th, td {
+		border: 2px solid #666;
+		
+		}
+		td {
+		font-weight: bold;
+		}
+		.material-symbols-outlined {
+		font-family: "Material Symbols Outlined";
+		font-weight: normal;
+		font-style: normal;
+		font-size: 80px;
+		line-height: 1;
+		display: inline-block;
+		white-space: nowrap;
+		direction: ltr;
+		font-feature-settings: "liga";
+		-webkit-font-feature-settings: "liga";
+		-webkit-font-smoothing: antialiased;
+		font-variation-settings:
+			"FILL" 0,
+			"wght" 400,
+			"GRAD" 0,
+			"opsz" 24;
+}
 	}
 	@media(min-width:981px) {
 	:root {
@@ -378,47 +388,33 @@
 	}
 	</style>
 	</head>
-	<body id="body">
+	<body >
 	<div class="menu">
 		<!--<div class="zrd"><a style="font-size: 1vw;" href="zerados.html"><button class="btnz">Jogos Zerados</button></a></div>-->
-		<div class="abn"><a style="font-size: 1vw;" href="Adicionar_informação.html"><button class="btna">Adiconar Dias</button></a></div>
-		<h1 class="bar"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div class="bib">Controle Piscina</div></a></h1>
-		<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne">Estatísticas</button></a></div>
-		<div class="menuu">
-							<button id="btnc" class="btnm"> Configurações <br><i class="material-symbols-outlined">settings</i></button>
-								<div id="cont" class="mencont">
-									  <button id="btndk" class="color">modo escuro</button>
-									  <button id="btnlg" class="color">modo claro</button>
-								</div>
-							</div>
-		</div>
+		<!--<div class="abn"><a style="font-size: 1vw;" href="Adicionar_informação.html"><button class="btna">Adiconar Dias</button></a></div>-->
+		<h1 style="position: relative;left: 250px;"><a style="color: var(--tx-color1);" href="Página_Principal.html"><div style="font-size: 7vw;text-decoration: underline;">Controle Piscina<span class="material-symbols-outlined">home</span></div></a></h1>
+		<!--<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne">Estatísticas</button></a></div>-->
 		<div style=" position: relative; top: 150px;">
 		
 		<h1 id="titulo" style="text-align: center;"></h1>
 		<h2 style="color: var(--tx-color1);text-align:left; ">Medidas do dia:</h2>
-		<div class="fll" style="border: solid 2px black;border-radius: 15px;display: flex;">
-			<div>			
-				<ul style="text-align:left;">
-					
-					<li>Ph medido: <span class="span" id="ph"></span></li>
-					<li>Cloro livre medido: <span class="span" id="clLivre"></span></li>
-					<li>Cloro combinado medido: <span class="span" id="clCombinado"></span></li>
-					<li>Alcalinidade medida: <span class="span" id="alcalinidade"></span></li>
-					<li>Dureza cálcica medida: <span class="span" id="durCalc"></span></li>
-					<li>Ácido cianúrico medido: <span class="span" id="acCian"></span></li>
-					<li>TDS medido: <span class="span" id="TDS"></span></li>
-					<li>Turbidez medida: <span class="span" id="turbidez"></span></li>
-					<li>Observações realizadas: <span id="obs" class="observacao"></span></li>
-					<li>Casa: <span id="casa" class="observacao"></span></li>
-
+			
+				<table style="font-size: 4vw;border-collapse: separate;border-spacing: 2px;position: relative;left: 250px;border-radius: 12px;">
+					<tr><td>Ph medido: <span class="span" id="ph"></td></span></tr>
+					<tr><td>Cloro livre medido: <span class="span" id="clLivre"></span></td></tr>
+					<tr><td>Cloro combinado medido: <span class="span" id="clCombinado"></span></td></tr>
+					<tr><td>Alcalinidade medida: <span class="span" id="alcalinidade"></span></td></tr>
+					<tr><td>Dureza cálcica medida: <span class="span" id="durCalc"></span></td></tr>
+					<tr><td>Ácido cianúrico medido: <span class="span" id="acCian"></span></td></tr>
+					<tr><td>TDS medido: <span class="span" id="TDS"></span></td></tr>
+					<tr><td>Turbidez medida: <span class="span" id="turbidez"></span></td></tr>
+					<tr><td>Observações realizadas: <span id="obs" class="observacao"></span></td></tr>
+					<tr><td>Casa: <span id="casa" class="observacao"></span></td></tr>
+				</table>
 						<!--<ul>
 							<li><a style="font-size: 1vw;" href="Estatísticas.html">Estatísticas de Desepenho</a></li></p></li>
 						</ul>
 				</ul>-->
-			</div>
-			<div>
-			<img id="imagem" style="width: 30vw; height: auto; border: solid 2px black; border-radius: 15px;">
-			</div>
 		</div>
 		
 			<!--<div class="cfg">
@@ -430,6 +426,7 @@
 				</ul>
 			</div>-->
 			</div>
+		</div>
 			<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 			<script>
 const banco = supabase.createClient(
@@ -489,8 +486,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				? textoVazio
 				: `${valor}${unidade}`;
 
-		document.getElementById("imagem").src =
-			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka65kV9IPeZQ8e5s3lATdqYM_XN-84ljKGS4pL6UvIQ&s=10";
 
 		document.getElementById("ph").textContent =
 			mostrar(dados.Ph, "", "Sem pH informado");
@@ -514,45 +509,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("obs").textContent =
 			dados.observacoes ??
 			dados["observações"] ??
-			dados["Observações"] ??
 			"Sem observações";
 	}
 
 	carregarRegistro();
 
-	const body = document.body;
-	const btnd = document.getElementById("btndk");
-	const btnl = document.getElementById("btnlg");
-	const cfg = document.getElementById("btnc");
-	const con = document.getElementById("cont");
 
-	const page = location.pathname.split("/").pop();
-	const key = "theme_" + page;
-	const savedTheme = localStorage.getItem(key);
 
-	if (savedTheme === "dark") {
-		body.classList.add("dark-mode");
-		body.classList.remove("light-mode");
-	} else {
-		body.classList.add("light-mode");
-		body.classList.remove("dark-mode");
-	}
 
-	btnd.addEventListener("click", function () {
-		body.classList.remove("light-mode");
-		body.classList.add("dark-mode");
-		localStorage.setItem(key, "dark");
-	});
-
-	btnl.addEventListener("click", function () {
-		body.classList.remove("dark-mode");
-		body.classList.add("light-mode");
-		localStorage.setItem(key, "light");
-	});
-
-	cfg.addEventListener("click", function () {
-		con.classList.toggle("show");
-	});
 });
 </script>
 	</body>

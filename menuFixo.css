@@ -7,9 +7,9 @@
 		}
 		.bar {
 		color: var(--tx-color1);
-		position:fixed;
+		position:absolute;
 		top: 13.4vw;
-		left: 29.5vw;
+		left: 34vw;
 		z-index:100000;
 		height: 5vw;
 		text-align: center;
@@ -21,7 +21,7 @@
 		text-decoration: underline;
 		}
 		.bib {
-		position:relative;
+		position:absolute;
 		top:0;
 		bottom: 13.5vw;
 		background-color: none;
@@ -120,8 +120,6 @@
 		border-radius: 15px;
 		text-decoration:none;
 		height: 4vw;
-		}
-		.menu {
 		}
 		/*Botões*/
 		.zrd {

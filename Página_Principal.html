@@ -296,64 +296,26 @@
 			text-decoration: underline;
 		}
 
-		.mencont {
-			position: absolute;
-			top: 18vw;
-			right: 40px;
-			max-height: 0;
-			z-index: 999999;
-			background-color: #ffffff;
-			min-width: 120px;
-			max-width: 1400px;
-			background-color:var(--fn-color);
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			padding: 15px;
-			color: var(--tx-color1);
-			font-size: 3vw;
-			margin-top: 1vw;
-			overflow-y: auto;
-			opacity: 0;
-			overflow: hidden;
-			transition: opacity 0.4s ease, max-height 0.4s ease;
-		}
-		
-		.mencont a {
-			display: block;
-			padding: 2vw;
-			text-decoration: none;
-			color: var(--tx-color1);
-			margin-top: 2vw;
-			border: 2px solid white;
-			background-color: #121212;
-			border-radius: 13px;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-			transition: transform 0.5s;
-		}
 
-		.mencont a:hover {
-			transform: scale(1.05);
-		}
 		
 		.color {
-			background-color:#1a1c27;
-			border: 3px solid white;
-			border-radius: 15px;
+			background-color: white;
+			border: none;
 			padding: 13px;
-			color: white;
-			font-size: 1vw;
+			color: black;
+			font-size:1vw;
 			margin-top: 10px;
 		}
 		
 		.sel {
-			background-color: #121920;
-			border-radius: 15px;
+			position: relative;
+			background-color: white;
 			cursor: pointer;
-			border: #5b5d61 3px solid;
-			color: white;
+			border: none;
+			color: black;
 			padding: 15px;
-			font-size: 2vw;
-			font-family: "Italiana", sans-serif;
+			font-size: 3vw;
+			font-family: "Montserrat", sans-serif;
 		}
 		
 		.pesquisa {
@@ -457,11 +419,16 @@ s
 .login.show {
   pointer-events: auto;
 }
-.mencont.show {
-		opacity: 1;
-		max-height: 500px;
-		pointer-events: auto;
-		}
+.mencont {
+	position: relative;
+	bottom: 200px;
+	right: 10px;
+	align-items: right;
+	justify-content: right;
+	text-align: right;
+	max-height: 500px;
+	pointer-events: auto;
+}
 }
 
 @media (min-width:981px){
@@ -988,18 +955,17 @@ s
 
 			<h1 class="bar" ><div style="font-size: 60px;"class="bib">Controle de Piscina</div></h1>	
 
-			<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>
+		<!--	<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>-->
 
-			<div class="menuu">
-				<button id="btnc" class="btnm"> Filtrar</button>
 
-				<div id="cont" class="mencont">
+
+				<div class="mencont">
 					<p style="color: white;">Filtrar por casa/dia do registro</p> 
-					<button class="color"><select class="sel" id="selCasa"></select></button>
-					 <button  class="color"><label for="dia">Filtrar por dia:</label><input type="date"></button>
+					<button class="color" ><select class="sel" id="selCasa" style="border: 1px black solid; width: 300px;"></select></button>
+					<button  style="margin-left: 30px; "class="color"><label for="dia">Filtrar por dia:</label><input id="dia" type="date"></button>
+					<button  id="filtrar" class="color" style="font-size: 40px;position: relative;left: 30px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Filtrar</button>
 				</div>
 
-			</div>
 
 		</div>	
 
@@ -1035,6 +1001,7 @@ s
 			const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
 			const voltar = document.getElementById("voltar");
 			const elogin = document.getElementById("elogin");
+			const filtrar = document.getElementById("filtrar");
 			const yy = document.getElementById("yy");
 			const xx = document.getElementById("xx");
 
@@ -1066,8 +1033,10 @@ s
 			}
 			carregarSelectCasa();
 			const selectCasa = document.getElementById("selCasa");
-			selectCasa.addEventListener("change", function () {
-				mostrarJogosNaBiblioteca(selectCasa.value);
+			const selectDia = document.getElementById("dia");
+			filtrar.addEventListener("click", function () {
+				console.log(selectDia.value)
+				mostrarJogosNaBiblioteca(selectCasa.value, selectDia.value);
 				});
 
 			async function carregarCasasDisponiveis() {
@@ -1459,22 +1428,19 @@ s
 			const body = document.body;
 			const btnd = document.getElementById("btndk");
 			const btnl = document.getElementById("btnlg");
-			const cfg = document.getElementById("btnc");
 			const con = document.getElementById("cont");
 			//const selPesq  = document.getElementById('selPesq');
 			//const btnp  = document.getElementById('pesqui');
 			//const genero  = document.getElementById('selectFormal');
 			//const pesquisa  = document.getElementById('pesquisa');
-			cfg.addEventListener('click', function() {
-				con.classList.toggle('show')
-			})
+
 			document.getElementById("add").addEventListener('click', function() {
 			document.getElementById("pnlCasa").classList.add('show');
 			document.getElementById("pnlCodigoProp").classList.remove('show');
 			menuLateral.classList.remove('mostrar')
 			});
 			
-		async function mostrarJogosNaBiblioteca(idCasa) {
+		async function mostrarJogosNaBiblioteca(idCasa, dia) {
 		const painel = document.getElementById("painel");
 		painel.replaceChildren();
 
@@ -1483,8 +1449,9 @@ s
 			.select("*")
 			.order("dia", { ascending: false });
 
-		if (idCasa) {
-			consulta = consulta.eq("id_casa", idCasa);
+		if (idCasa && dia) {
+			consulta = consulta.eq("id_casa", idCasa)
+			consulta = consulta.eq("dia", dia);
 		}
 
 		const { data: registros, error } = await consulta;

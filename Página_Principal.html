@@ -1,1513 +1,260 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Controle Piscina</title>
-		<link rel="stylesheet" href="menuFixo.css">	
-		<link rel="stylesheet" href="CSSPagPrinc.css">		
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-		<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home,logout,search,text_select_jump_to_end,add,start&display=block">
-		<style>
+
+<head>
+	<title>Controle Piscina</title>
+	<link rel="stylesheet" href="menuFixo.css">
+	<link rel="stylesheet" href="CSSPagPrinc.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+	<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home,logout,search,text_select_jump_to_end,add,start&display=block">
+	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-.material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  display: inline-block;
-  white-space: nowrap;
-  direction: ltr;
-  font-feature-settings: "liga";
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
-}
-		@media(max-width:980px) {
-		.login {
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			inset: 0;
-			background-color: white;
-			z-index: 1000000;
-			font-size: 40px;
-		}
-		.loginSenha > input {
-		position: relative;
-		right: 20px;
-		}
-		:root {
-			--bg-color: #white;
-			--tx-color1: black;
-			--fn-color: #314c53;
-			--tx-color4: black;
-			--cb-color: #121212;
-			transition: background-color 0.3s, color 0.3s;
-		}
 
-		.light-mode {
-			--bg-color: #fdf2c5;
-			--tx-color1: #000000;
-			--tx-color4: #000000;
-			--cb-color: #e7edea;
-			--fn-color: #ffffff;
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		.dark-mode {
-			--bg-color: white;
-			--tx-color1: black;
-			--tx-color4: black;
-			--cb-color: #121212;
-			--fn-color: #314c53;
-			transition: background-color 0.3s, color 0.3s;
-		}
-		* {
-		font-size: 30px;
-		}
-		body {
-			background-color: var(--bg-color);
-			transition: background-color 0.3s, color 0.3s;
-		}
-		#pgPrinc {
-		position: relative;
-		z-index: 2;
-		}
-		h1 {
-			font-family: "Montserrat", sans-serif;
-			font-size:3vw;
-		}
-
-		h2 {
-			font-size: 2vw;
-			color: var(--tx-color1);
-		}
-
-		.mai {
-			font-family: "Montserrat", sans-serif;
-			position:relative;
-			left:0;
-			font-size:2.5vw;
-		}
-
-		.cfg {
-			border: solid black 3px;
-			padding: 10px;
-			margin: 30px;
-			border-radius: 15px;
-			box-shadow: 10px 10px 5px gray;
-			background-color: #8e8e8e;
-			color: #bd3737;
-			font-size: 20px;
-			font-family: "Montserrat", sans-serif;
-			margin-bottom:15vw;
-		}
-
-		.gpu {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		.cpu {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		.plm {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		ul {
-			font-family: "Montserrat", sans-serif;
-			color: var(--tx-color1);
-		}
-
-		table {
-			font-family: "Montserrat", sans-serif;
-		}
-
-		a {
-			text-decoration: none;
-			color: #c9d1d3;
-		}
-
-		.ul {
-			text-decoration: none;
-			color: var(--tx-color4);
-		}
-
-		.btn {
-			background-color:#2b2823;
-			border: 3px solid white;
-			border-radius: 15px;
-			padding: 13px;
-			color: var(--tx-color1);
-			font-size: 1vw;
-		}
-		.btnSai {
-			position: relative;
-		}
-		.btnAdd {
-			position: relative;
-		}
-
-		img {
-			transition: transform 0.5s ease;
-		}
-
-		.tr {
-			font-size: 1vw
-		}
-
-		.tab {
-			width: 98%;
-			position:relative;
-			margin:0 0 0.5vw 1vw;
-		}
-
-		.bibl {
-			color: var(--tx-color1);
-			font-size: 25px;
-		}
-
-			img:hover {
-			transform: scale(1.07);
-			box-shadow: 1px 1px 1px 1px black;
-		}
-
-		input {
-			border-radius: 13px;
-			border: 1px solid black;
-		}
-		input[type="radio"] {
-		transform: scale(1.8);
-		accent-color: blue;
-		cursor: pointer;
-		}
-		button {
-			transition: transform 0.5s ease;
-			cursor: pointer;
-		}
-
-		.table {
-			display: flex;
-			flex-direction: row;
-			font-family: "Montserrat", sans-serif;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			scroll-behavior: smooth;
-		}
-
-		.table1 {
-			display: flex;
-			flex-direction: row;
-			font-family: "Montserrat", sans-serif;
-			align-items: center;
-			justify-content: center;
-			transform: scale(1.2);
-		}
-
-		.jg1 {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			justify-content: center;
-			align-items: center;
-			margin-right: 0.5vw;
-			margin-left: 2vw;
-			scroll-snap-align: start;
-		}
-
-		.nm1 {
-			border: 1px solid black;
-			border-radius: 13px;
-			width: 11vw;
-			margin-bottom: 20px;
-			background-color: var(--cb-color);
-			padding: 10px;
-			font-size: 20px;
-			color: white;
-		}
-
-		.nm2 {
-			border: 1px solid black;
-			border-radius: 13px;
-			width: 15vw;
-			margin-bottom: 20px;
-			background-color: var(--cb-color);
-			padding: 10px;
-			font-size: 20px;
-			color: var(--tx-color1);
-		}
-
-		.jg2 {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			justify-content: center;
-			align-items: center;
-			margin-right: 1vw;
-			margin-left: 1vw;
-			position: relative;
-			bottom: 0.8vw;
-		}
-
-		.menuu {
-			position: fixed;
+		.material-symbols-outlined {
+			font-family: "Material Symbols Outlined";
+			font-weight: normal;
+			font-style: normal;
+			font-size: 24px;
+			line-height: 1;
 			display: inline-block;
-			top: 3vw;
-			left: 87vw;
-			z-index: 111111111111111111;	
+			white-space: nowrap;
+			direction: ltr;
+			font-feature-settings: "liga";
+			-webkit-font-feature-settings: "liga";
+			-webkit-font-smoothing: antialiased;
+			font-variation-settings:
+				"FILL" 0,
+				"wght" 400,
+				"GRAD" 0,
+				"opsz" 24;
 		}
-
-		.btnm {
-			cursor: pointer;
-			position: relative;
-			top: 10vw;
-			background-color:var(--fn-color);
-			border: 3px solid white;
-			border-radius: 15px;
-			padding: 13px;
-			color: var(--tx-color1);
-			font-size: 3vw;
-			text-decoration: underline;
-		}
-
 
 		
-		.color {
-			background-color: white;
-			border: none;
-			padding: 13px;
-			color: black;
-			font-size:1vw;
-			margin-top: 10px;
-		}
-		
-		.sel {
-			position: relative;
-			background-color: white;
-			cursor: pointer;
-			border: none;
-			color: black;
-			padding: 15px;
-			font-size: 3vw;
-			font-family: "Montserrat", sans-serif;
-		}
-		
-		.pesquisa {
-			position: fixed;
-			display: inline-block;
-			top: 3vw;
-			left: 2.5vw;
-			z-index: 111111111111111111;		
-		}
-		.close {
-		position: relative;
-		left: 90%;
-		bottom: 600px;
-		background-color: red;
-		border: 2px solid black;
-		border-radius: 14px;
-		padding: 20px;
-		box-shadow: none;
-		outline: none;
-		transition: transform 0.5s ease;
-		}
-		.close1 {
-		position: relative;
-		left: 90%;
-		top: 10px;
-		background-color: red;
-		border: 2px solid black;
-		border-radius: 14px;
-		padding: 20px;
-		box-shadow: none;
-		outline: none;
-		transition: transform 0.5s ease;
-		}
-		.close:hover {
-		transform: scale(1.1)
-		box-shadow: none;
-		outline: none;
-		}
-		.loginSenha {
-		position: relative;
-		top: 70px;
-		left: 100px;
-		width: 40%;
-		transform: scale(1.2);
-		}
-		.criarCasa {
-		margin-top: 70px;
-		margin-left: 100px;
-		display: flex;
-		flex-direction: row;
-		}
-
-		.sideBar {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 0;
-			height: 100vh;
-			opacity: 0;
-			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			background-color: white;
-			color: black;
-			transition: width 0.3s ease, opacity 0.3s ease;
-			z-index: 90000000000;
-			align-items: center;	
-		}
-		.sideBar > button {
-			margin: 30px;
-			background-color: white;
-			border: none;
-		}
-		.sideBar >:nth-child(1) {
-			margin-top: 100px;
-		}
-		.teste {
-			opacity: 0;
-			justify-content: center;	
-			align-items: center;		
-		}
-		.tstBtn > button {
-			border: none;
-			margin: 10px;
-			background-color: white;
-			color: blue;
-			text-decoration: underline;
-		}
-		.sideBar.mostrar {
-			width: 100%;
-			opacity: 1;
-		}
-
-		.show {
-			opacity: 1;
-		}
-		.login:not(.show) {
-  pointer-events: none;
-}
-s
-.login.show {
-  pointer-events: auto;
-}
-.mencont {
-	position: relative;
-	bottom: 200px;
-	right: 10px;
-	align-items: right;
-	justify-content: right;
-	text-align: right;
-	max-height: 500px;
-	pointer-events: auto;
-}
-}
-
-@media (min-width:981px){
-
-
-		:root {
-			--bg-color: #0f141a;
-			--tx-color1: white;
-			--fn-color: #314c53;
-			--tx-color4: black;
-			--cb-color: #121212;
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		.light-mode {
-			--bg-color: #fdf2c5;
-			--tx-color1: #000000;
-			--tx-color4: #000000;
-			--cb-color: #e7edea;
-			--fn-color: #ffffff;
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		.dark-mode {
-			--bg-color: #0f141a;
-			--tx-color1: white;
-			--tx-color4: black;
-			--cb-color: #121212;
-			--fn-color: #314c53;
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		body {
-			background-color: var(--bg-color);
-			transition: background-color 0.3s, color 0.3s;
-		}
-
-		h1 {
-			font-family: "Montserrat", sans-serif;
-			font-size:3vw;
-		}
-
-		h2 {
-			font-size: 2vw;
-			color: var(--tx-color1);
-		}
-
-		.mai {
-			font-family: "Montserrat", sans-serif;
-			position:relative;
-			left:0;
-			font-size:2.5vw;
-		}
-
-		.cfg {
-			border: solid black 3px;
-			padding: 10px;
-			margin: 30px;
-			border-radius: 15px;
-			box-shadow: 10px 10px 5px gray;
-			background-color: #8e8e8e;
-			color: #bd3737;
-			font-size: 20px;
-			font-family: "Montserrat", sans-serif;
-			margin-bottom:15vw;
-		}
-
-		.gpu {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		.cpu {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		.plm {
-			border: solid black 3px;
-			padding: 3px;
-			border-radius: 15px;
-			box-shadow: 6px 6px 1px gray;
-			background-color: #9e9e9e;
-			font-family: "Montserrat", sans-serif;
-			font-size:1vw
-		}
-
-		ul {
-			font-family: "Montserrat", sans-serif;
-			color: var(--tx-color1);
-		}
-
-		table {
-			font-family: "Montserrat", sans-serif;
-		}
-
-		a {
-			text-decoration: none;
-			color: #c9d1d3;
-		}
-
-		.ul {
-			text-decoration: none;
-			color: var(--tx-color4);
-		}
-
-		.btn {
-			background-color:#2b2823;
-			border: 3px solid white;
-			border-radius: 15px;
-			padding: 13px;
-			color: var(--tx-color1);
-			font-size: 1vw;
-		}
-
-		img {
-			transition: transform 0.5s ease;
-		}
-
-		.tr {
-			font-size: 1vw
-		}
-
-		.tab {
-			width: 98%;
-			position:relative;
-			margin:0 0 0.5vw 1vw;
-		}
-
-		.bibl {
-			color: var(--tx-color1);
-		}
-
-			img:hover {
-			transform: scale(1.07);
-			box-shadow: 1px 1px 1px 1px black;
-		}
-		
-		button:hover {
-		transform: scale(1.2);
-		}
-
-		button {
-			transition: transform 0.5s ease;
-			cursor: pointer;
-		}
-
-		.table {
-			display: flex;
-			flex-direction: row;
-			font-family: "Montserrat", sans-serif;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			scroll-behavior: smooth;
-		}
-
-		.table1 {
-			display: flex;
-			flex-direction: row;
-			font-family: "Montserrat", sans-serif;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.jg1 {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			justify-content: center;
-			align-items: center;
-			margin-right: 0.5vw;
-			margin-left: 2vw;
-			scroll-snap-align: start;
-		}
-
-		.nm1 {
-			border: 1px solid black;
-			border-radius: 13px;
-			width: 11vw;
-			margin-bottom: 20px;
-			background-color: var(--cb-color);
-			padding: 10px;
-			font-size: 20px;
-			color: var(--tx-color1);
-		}
-
-		.nm2 {
-			border: 1px solid black;
-			border-radius: 13px;
-			width: 15vw;
-			margin-bottom: 20px;
-			background-color: var(--cb-color);
-			padding: 10px;
-			font-size: 20px;
-			color: var(--tx-color1);
-		}
-
-		.jg2 {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			justify-content: center;
-			align-items: center;
-			margin-right: 1vw;
-			margin-left: 1vw;
-			position: relative;
-			bottom: 0.8vw;
-		}
-
-		.menuu {
-			position: fixed;
-			display: inline-block;
-			top: 3vw;
-			left: 85vw;
-			z-index: 111111111111111111;	
-		}
-
-		.btnm {
-			cursor: pointer;
-			background-color:var(--fn-color);
-			border: 3px solid white;
-			border-radius: 15px;
-			padding: 13px;
-			color: var(--tx-color1);
-			font-size: 1vw;
-		}
-
-		.mencont {
-			position: absolute;
-			top: 100%;
-			left: 0;
-			z-index: 100000000000000000000000000000;
-			background-color: #ffffff;
-			max-height: 90vh;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-			min-width: 120px;
-			max-width: 140px;
-			background-color:var(--fn-color);
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			padding: 13px;
-			color: var(--tx-color1);
-			font-size: 1vw;
-			margin-top: 1vw;
-			overflow-y: auto;
-			opacity: 0;
-			max-height: 0;
-			overflow: hidden;
-				max-height: 500px; /* um valor grande o suficiente */
-			transition: opacity 0.4s ease, max-height 0.4s ease;
-		}
-		
-		.mencont a {
-			display: block;
-			padding: 2vw;
-			text-decoration: none;
-			color: var(--tx-color1);
-			margin-top: 2vw;
-			border: 2px solid white;
-			background-color: #121212;
-			border-radius: 13px;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-			transition: transform 0.5s;
-		}
-
-		.mencont a:hover {
-			transform: scale(1.05);
-		}
-		.login {
-			opacity: 0;
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			inset: 0;
-			background-color: white;
-			z-index: 9000000000000000000;
-		}
-		
-
-		.color {
-			background-color:#1a1c27;
-			border: 3px solid white;
-			border-radius: 15px;
-			padding: 13px;
-			color: white;
-			font-size: 1vw;
-			margin-top: 10px;
-		}
-		
-		.sel {
-			background-color: #121920;
-			border-radius: 15px;
-			cursor: pointer;
-			border: #5b5d61 3px solid;
-			color: white;
-			padding: 15px;
-			font-size: 2vw;
-			font-family: "Italiana", sans-serif;
-		}
-		
-		.pesquisa {
-			position: fixed;
-			display: inline-block;
-			top: 3vw;
-			left: 2.5vw;
-			z-index: 111111111111111111;		
-		}
-		.close {
-		position: relative;
-		left: 95%;
-		bottom: 200px;
-		background-color: red;
-		border: 2px solid black;
-		border-radius: 14px;
-		padding: 20px;
-		box-shadow: none;
-		outline: none;
-		transition: transform 0.5s ease;
-		}
-		.btnSai {
-			position: relative;
-		}
-		.btnAdd {
-			position: relative;
-		}
-		.sideBar {
-		width: 0;		
-		opacity: 0;
-		bottom: 0;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		background-color: white;
-		color: black;
-		transition: width 0.3s ease, opacity 0.3s ease;
-		z-index: 100000;
-		}
-		.sideBar > button {
-			margin: 30px;
-			background-color: white;
-			border: none;
-		}
-		.sideBar >:nth-child(1) {
-			margin-top: 100px;
-		}
-
-		.sideBar.mostrar {
-		position: fixed;
-		right: 0;
-		left: 0;
-		width: 25%;
-		opacity: 1;
-		height: 100%;
-		}
-		.close1 {
-		position: relative;
-		left: 90%;
-		top: 10px;
-		background-color: red;
-		border: 2px solid black;
-		border-radius: 14px;
-		padding: 20px;
-		box-shadow: none;
-		outline: none;
-		transition: transform 0.5s ease;
-		}
-		.close:hover {
-		transform: scale(1.1)
-		box-shadow: none;
-		outline: none;
-		}
-		.loginSenha {
-		position: relative;
-		top: 25px;
-		left: 5%;
-		width: 40%;
-		transform: scale(1.2);
-		}
-		
-		.show {
-			opacity: 1;
-		}
-		.login:not(.show) {
-	pointer-events: none;
-}
-
-.login.show {
-	pointer-events: auto;
-}
-}
-
-		</style>
+	</style>
 
 <body id="body">
-		<button style="position: relative; z-index: 900000000001;" id="menu">Menu Lateral</button>
-		
-		<div class="sideBar" id="mnLat">
-			<button style="position: absolute;top:-40px;left:0;background-color: #c9d1d3;border-radius: 12px;padding: 10px;" onclick="document.getElementById('mnLat').classList.remove('mostrar')">Fechar</button>
-			<h1 style="color: black;text-decoration: underline;font-size: 70px;">Menu</h1>
-			<div class="teste" style="display: flex;flex-direction: column;" id="prop">
-				<h1 style="color: black;font-size: 50px;">Proprietário</h1>
-				<div class="tstBtn"style="display: flex;flex-direction: column; align-items:  flex-start;">
-				<button  id="sair" class="btnSai"type="button"><span class="material-symbols-outlined">logout</span>  Deslogar</button>	
-				<button  id="add" class="btnAdd" type="button"><span class="material-symbols-outlined">home</span>  Criar casa</button>
-				<button  id="xx" class="btnSai"type="button" ><span class="material-symbols-outlined">start</span>  Gerar código</button>	
-				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;" href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar Registro</button></a>
-				<button  id="yy" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>  Pesquisa</button>
-				</div>
-			</div>
+	<button style="position: relative; z-index: 900000000001;" id="menu">Menu Lateral</button>
 
-			<div class="teste" style="display: flex;flex-direction: column;" id="pisc">
-				<h1 style="color: black;font-size: 50px;">Piscineiro</h1>
-				<div class="tstBtn"style="display: flex;flex-direction: column; align-items:  flex-start;">
-				<button  id="sairPi" class="btnSai"type="button"><span class="material-symbols-outlined">logout</span>  Deslogar</button>	
-				<button  id="xxPi" class="btnSai"type="button"><span class="material-symbols-outlined">text_select_jump_to_end</span> Receber código</button>
-				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;" href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar Registro</button></a>	
-				<button  id="yyPi" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>  Pesquisa</button>
-				</div>
+	<!--Menus Secundários-->
+
+	<div class="sideBar" id="mnLat">
+		<button style="position: absolute;top:-40px;left:0;background-color: #c9d1d3;border-radius: 12px;padding: 10px;"
+			onclick="document.getElementById('mnLat').classList.remove('mostrar')">Fechar</button>
+		<h1 style="color: black;text-decoration: underline;font-size: 70px;">Menu</h1>
+		<div class="teste" style="display: flex;flex-direction: column;" id="prop">
+			<h1 style="color: black;font-size: 50px;">Proprietário</h1>
+			<div class="tstBtn" style="display: flex;flex-direction: column; align-items:  flex-start;">
+				<button id="sair" class="btnSai" type="button"><span class="material-symbols-outlined">logout</span>
+					Deslogar</button>
+				<button id="add" class="btnAdd" type="button"><span class="material-symbols-outlined">home</span> Criar
+					casa</button>
+				<button id="xx" class="btnSai" type="button"><span class="material-symbols-outlined">start</span> Gerar
+					código</button>
+				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;"
+						href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar
+						Registro</button></a>
+				<button id="yy" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>
+					Pesquisa</button>
 			</div>
 		</div>
 
-		<div class="login" id="login">
+		<div class="teste" style="display: flex;flex-direction: column;" id="pisc">
+			<h1 style="color: black;font-size: 50px;">Piscineiro</h1>
+			<div class="tstBtn" style="display: flex;flex-direction: column; align-items:  flex-start;">
+				<button id="sairPi" class="btnSai" type="button"><span class="material-symbols-outlined">logout</span>
+					Deslogar</button>
+				<button id="xxPi" class="btnSai" type="button"><span
+						class="material-symbols-outlined">text_select_jump_to_end</span> Receber código</button>
+				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;"
+						href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar
+						Registro</button></a>
+				<button id="yyPi" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>
+					Pesquisa</button>
+			</div>
+		</div>
+	</div>
 
-			<h1 style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">Login</h1>
-			<div class="loginSenha">
-				
-				
-				<label style="font-size: 40px;"for="inputCad">Email:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="inputCad" placeholder="Digite seu e-mail"><br>
-				<label style="font-size: 40px;"for="senhaCad">Senha:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senhaCad" placeholder="Digite sua senha">
-			</div>
-			
-			
-			<div style="position:relative; top: 90px;right: 1%;">
-				<button id="entrar" style="font-size: 40px;position: relative;left: 450px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
-				
-				<p style="position: relative; top: 40px;margin: 40px;color: black;"><span id="loginSit" style="font-size: 50px;"></span></p>
-			</div>
-			<button id="pagCadastro" style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;" >Cadastrar</button>
-		
+	<div class="login" id="login">
+
+		<h1
+			style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">
+			Login</h1>
+		<div class="loginSenha">
+
+
+			<label style="font-size: 40px;" for="inputCad">Email:</label>
+			<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="inputCad"
+				placeholder="Digite seu e-mail"><br>
+			<label style="font-size: 40px;" for="senhaCad">Senha:</label>
+			<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senhaCad"
+				placeholder="Digite sua senha">
 		</div>
 
-		<div class="login" id="pnlCadatsro">
-			<h1 style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">Cadastro</h1>
-			<div class="loginSenha">
-				
-				<label style="font-size: 40px;"for="nomeInput">Digite o Nome:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="text" id="nomeInput" placeholder="Digite o Nome"><br>
-				<label style="font-size: 40px;"for="input">Digite o email:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="input" placeholder="Digite o e-mail"><br>
-				<label style="font-size: 40px;"for="senha">Senha:</label>
-				<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senha" placeholder="Digite sua senha">
-			</div>
-			
-			<div style="font-size: 50px;position:relative; top: 90px; left: 1%;">
-				<p style="font-size: 50px;color: black;">Selecione o tipo da conta:</p>
-				<input  value="piscineiro" type="radio" name="check">Piscineiro</input>
-				<input value="proprietario" type="radio" name="check">Proprietario</input>
-			</div>
-			
-			<div style="position:relative; top: 90px;right: 1%;">
-				<button id="criarConta" style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Criar conta</button>
-				<p style="position: relative; top: 40px;margin: 30px;color: black"><span style="color: black;font-size: 50px" id="cadastroSit"></span></p>
-			</div>
-			<button id="elogin" style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;" >Login</button>
-			<button id="voltar" style="font-size: 40px;position: relative;top: 150px;left: 426px;text-decoration: underline;background-color: white; border: none;" >Sair</button>
 
-		
+		<div style="position:relative; top: 90px;right: 1%;">
+			<button id="entrar"
+				style="font-size: 40px;position: relative;left: 450px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
+
+			<p style="position: relative; top: 40px;margin: 40px;color: black;"><span id="loginSit"
+					style="font-size: 50px;"></span></p>
 		</div>
-		
-		
-		<div  style="align-items:center" class="login" id="pnlCasa">
-			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Criar casa</h1>
-			<div class="criarCasa">
-				<label style="font-size: 3.5vw;margin-right: 10px;" for="nomeCasa">Digite o Nome da Casa a ser criada:</label>
-				<input style="font-size: 3vw;" type="text" id="nomeCasa" placeholder="Digite o nome da casa">
-				<button id="addCasa" style="position: relative;top: 130px; right: 500px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;">Adicionar casa</button>	
-			</div>
-			<div style="position: relative; left: 2%;top 2%;pointer-events: none;">				
-				<p style="width: 50%;color: black;position: relative; top: 110px; margin: 30px"><span id="casaStatus"></span></p><br>
-				<p style="width: 50%;color: black;position: relative; top: 150px;margin: 30px"><span id="casasDisponiveis"></span></p>
-			</div>
-			
+		<button id="pagCadastro"
+			style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;">Cadastrar</button>
+
+	</div>
+
+	<div class="login" id="pnlCadatsro">
+		<h1
+			style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">
+			Cadastro</h1>
+		<div class="loginSenha">
+
+			<label style="font-size: 40px;" for="nomeInput">Digite o Nome:</label>
+			<input style="font-size: 40px;margin-bottom: 30px;" type="text" id="nomeInput"
+				placeholder="Digite o Nome"><br>
+			<label style="font-size: 40px;" for="input">Digite o email:</label>
+			<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="input"
+				placeholder="Digite o e-mail"><br>
+			<label style="font-size: 40px;" for="senha">Senha:</label>
+			<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senha"
+				placeholder="Digite sua senha">
 		</div>
 
-		<div  style="align-items:center" class="login" id="pnlCodigoProp">
-			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Gerar Código</h1>
-			<div class="criarCasa">
-				<label style="font-size: 3.5vw;margin-right: 10px;" for="casaConvite">Selecione a casa do convite:</label>
-				<select style="position: relative;left: 10px;border: black 1px solid" id="casaConvite">
-					<option value="">Selecione uma casa</option>
-				</select>
-			<button style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="gerarConvite">Gerar convite de convite</button>
-			
-			</div>
-			<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;";><span id="conviteStatus"></span></p>
-		</div>	
-		<div  style="align-items:center" class="login" id="pnlCodigoPisc">
-			
-			<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Receber Código</h1>
-			<div class="criarCasa">
-				<label style="font-size: 3.5vw;margin-right: 10px;" for="codigoConvite">Código recebido do proprietário:</label>
-				<input type="text" style="position: relative;left: 10px;border: black 1px solid" id="codigoConvite" placeholder="Digite o código"> 
-			<button style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;" type="button" id="aceitarConvite">Vincular à casa</button>
-			
-			</div>
-			<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;";><span id="conviteAceiteStatus"></span></p>
-			<p style="width: 50%;color: black;position: relative; top: 170px;margin: 30px"><span id="casasDisponiveisPi"></span></p>
-			
+		<div style="font-size: 50px;position:relative; top: 90px; left: 1%;">
+			<p style="font-size: 50px;color: black;">Selecione o tipo da conta:</p>
+			<input value="piscineiro" type="radio" name="check">Piscineiro</input>
+			<input value="proprietario" type="radio" name="check">Proprietario</input>
 		</div>
-		<div  id="pgPrinc" class="menu">
-		
 
-			<h1 class="bar" ><div style="font-size: 60px;"class="bib">Controle de Piscina</div></h1>	
+		<div style="position:relative; top: 90px;right: 1%;">
+			<button id="criarConta"
+				style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Criar
+				conta</button>
+			<p style="position: relative; top: 40px;margin: 30px;color: black"><span
+					style="color: black;font-size: 50px" id="cadastroSit"></span></p>
+		</div>
+		<button id="elogin"
+			style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;">Login</button>
+		<button id="voltar"
+			style="font-size: 40px;position: relative;top: 150px;left: 426px;text-decoration: underline;background-color: white; border: none;">Sair</button>
+
+
+	</div>
+
+
+	<div style="align-items:center" class="login" id="pnlCasa">
+		<h1 style="color: black; font-size: 8vw;text-decoration: underline;position: relative;left: 300px;">Criar casa</h1>
+		<div class="criarCasa">
+			<label style="font-size: 3.5vw;margin-right: 10px;" for="nomeCasa">Digite o Nome da Casa a ser
+				criada:</label>
+			<input style="font-size: 3vw;" type="text" id="nomeCasa" placeholder="Digite o nome da casa">
+			<button id="addCasa"
+				style="position: relative;top: 130px; right: 500px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;">Adicionar
+				casa</button>
+		</div>
+		<div style="position: relative; left: 2%;top 2%;pointer-events: none;">
+			<p style="width: 50%;color: black;position: relative; top: 110px; margin: 30px"><span
+					id="casaStatus"></span></p><br>
+			<p style="width: 50%;color: black;position: relative; top: 150px;margin: 30px"><span
+					id="casasDisponiveis"></span></p>
+		</div>
+
+	</div>
+
+	<div style="justify-content;:center" class="login" id="pnlCodigoProp">
+		<h1 style="color: black; font-size: 8vw;text-decoration: underline;position: relative;left: 300px;">Gerar Código</h1>
+		<div class="criarCasa">
+			<label style="font-size: 3.5vw;margin-right: 10px;" for="casaConvite">Selecione a casa do convite:</label>
+			<select style="position: relative;left: 10px;border: black 1px solid" id="casaConvite">
+				<option value="">Selecione uma casa</option>
+			</select>
+			<button
+				style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;"
+				type="button" id="gerarConvite">Gerar convite de convite</button>
+
+		</div>
+		<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;" ;>
+			<span id="conviteStatus"></span></p>
+	</div>
+	<div style="align-items:center" class="login" id="pnlCodigoPisc">
+
+		<h1 style="color: black; font-size: 8vw;text-decoration: underline;">Receber Código</h1>
+		<div class="criarCasa">
+			<label style="font-size: 3.5vw;margin-right: 10px;" for="codigoConvite">Código recebido do
+				proprietário:</label>
+			<input type="text" style="position: relative;left: 10px;border: black 1px solid" id="codigoConvite"
+				placeholder="Digite o código">
+			<button
+				style="font-size: 30px;position: relative;top: 140px; right: 400px;text-decoration:underline;color: white;background-color:  #292c37;border-radius: 12px;padding: 20px;"
+				type="button" id="aceitarConvite">Vincular à casa</button>
+
+		</div>
+		<p style="width: 50%;color: black;position: relative; top: 150px; left: 400px;margin: 30px;font-size: 4vw;" ;>
+			<span id="conviteAceiteStatus"></span></p>
+		<p style="width: 50%;color: black;position: relative; top: 170px;margin: 30px"><span
+				id="casasDisponiveisPi"></span></p>
+
+	</div>
+
+	<!--Fim Menus Secundários-->
+
+	<div id="pgPrinc" class="menu">
+
+
+		<h1  style="font-size: 60px;" class="bar">
+			Controle de Piscina
+		</h1>
 
 		<!--	<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>-->
 
 
 
-				<div class="mencont">
-					<p style="color: white;">Filtrar por casa/dia do registro</p> 
-					<button class="color" ><select class="sel" id="selCasa" style="border: 1px black solid; width: 300px;"></select></button>
-					<button  style="margin-left: 30px; "class="color"><label for="dia">Filtrar por dia:</label><input id="dia" type="date"></button>
-					<button  id="filtrar" class="color" style="font-size: 40px;position: relative;left: 30px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Filtrar</button>
-				</div>
-
-
-		</div>	
-
-		<div class="men" onclick="close()">
-			
-			<h2 style="text-align: center;font-size: 40px;position:relative; top: 20px;">Bem vindo, <span id="user" style="font-style:italic; font-size: 45px;"></span>:</h2>
-		
-			<div class="table">
-				<div class="table1" id="painel"></div>			
-			</div>
-
-			<p class="bibl">Controle de Piscina, 2026</p>
-
+		<div class="mencont">
+			<button class="color"><select class="sel" id="selCasa"
+					style="border: 1px black solid; width: 300px;"></select></button>
+			<button style="margin-left: 30px; " class="color"><label for="dia">Filtrar por dia:</label><input id="dia"
+					type="date"></button>
+			<button id="filtrar" class="color"
+				style="font-size: 40px;position: relative;left: 30px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Filtrar</button>
 		</div>
 
-<script>
-		  document.addEventListener("DOMContentLoaded", async function () {
-			const painelLogin = document.getElementById("login");
-			const cadastro = document.getElementById("pagCadastro");
-			const pnlCadatsro = document.getElementById("pnlCadatsro");
-			const btnMenu = document.getElementById("menu");
-			const menuLateral = document.getElementById("mnLat");
-			const campoNomeDaCasa = document.getElementById("nomeCasa");
-			const botaoAdicionarCasa = document.getElementById("addCasa");
-			const statusDaCasa = document.getElementById("casaStatus");
-			const listaCasas = document.getElementById("casasDisponiveis");
-			const listaCasasPi = document.getElementById("casasDisponiveisPi");
-			const seletorCasaConvite = document.getElementById("casaConvite");
-			const botaoGerarConvite = document.getElementById("gerarConvite");
-			const statusConvite = document.getElementById("conviteStatus");
-			const campoCodigoConvite = document.getElementById("codigoConvite");
-			const botaoAceitarConvite = document.getElementById("aceitarConvite");
-			const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
-			const voltar = document.getElementById("voltar");
-			const elogin = document.getElementById("elogin");
-			const filtrar = document.getElementById("filtrar");
-			const yy = document.getElementById("yy");
-			const xx = document.getElementById("xx");
 
-			
+	</div>
 
-			async function carregarSelectCasa() {
-				const select = document.getElementById("selCasa");
-				select.innerHTML = '<option value="">Selecione uma casa</option>';
+	<div style="position: relative;top: 16vw"> 
 
-				const { data: registros, error } = await banco
-					.from("Casas")
-					.select("id, casa")
+		<h2 style="text-align: center;font-size: 40px;position:relative; top: 20px;">Bem vindo, <span id="user"
+				style="font-style:italic; font-size: 45px;"></span>:</h2>
 
-				if (error) {
-					console.error("Erro ao carregar registros:", error);
-					painel.textContent = `Erro ao carregar: ${error.message}`;
-					return;
-				}
+		<div class="table">
+			<div class="table1" id="painel"></div>
+		</div>
 
-				for (const registro of registros) {
-					const option = document.createElement("option");
-					option.value = registro.id;
-					option.textContent =
-						`${registro.casa}`;
-					select.appendChild(option);
-					console.log(registro)
-				}
-				
-			}
-			carregarSelectCasa();
-			const selectCasa = document.getElementById("selCasa");
-			const selectDia = document.getElementById("dia");
-			filtrar.addEventListener("click", function () {
-				console.log(selectDia.value)
-				mostrarJogosNaBiblioteca(selectCasa.value, selectDia.value);
-				});
+		<p>Controle de Piscina, 2026</p>
 
-			async function carregarCasasDisponiveis() {
-			
-			const { data: casas, error } = await banco
-			  .from("Casas")
-			  .select("id, casa")
-			  .order("id", { ascending: true });
-			 if (error) {
-			  console.error("Erro ao carregar casas:", error);
-			  statusDaCasa.textContent = "Não foi possível carregar as casas.";
-			  return;
-			}
-			
-			seletorCasaConvite.replaceChildren();
+	</div>
 
-			const opcaoPadrao = document.createElement("option");
-			opcaoPadrao.value = "";
-			opcaoPadrao.textContent = "Selecione uma casa";
-			seletorCasaConvite.appendChild(opcaoPadrao);
-
-		for (const casa of casas) {
-			  const opcao = document.createElement("option");
-			  opcao.value = casa.id;
-			  opcao.textContent = casa.casa;
-			  seletorCasaConvite.appendChild(opcao);
-			}
-
-			if (casas.length === 0) {
-			  statusDaCasa.textContent = "Nenhuma casa disponível para esta conta.";
-			  listaCasas.textContent = "";
-			  listaCasasPi.textContent = "";
-			  return;
-			}
-
-			statusDaCasa.textContent = "";
-			listaCasas.innerHTML =`Casas disponíveis para ${user.textContent}(Propirtário): ` + casas.map(casa => casa.casa).join(",<br>");
-			listaCasasPi.innerHTML =`Casas disponíveis para ${user.textContent}(Piscineiro): ` + casas.map(casa => casa.casa).join(",<br>");
-			
-			}
-			const botoesY = [
-				document.getElementById("yy"),
-				document.getElementById("yyPi")
-			];
-			botoesY.forEach(botao => {
-			botao.addEventListener("click", function () {
-				document.getElementById('pnlCasa').classList.remove('show')
-				document.getElementById('pnlCodigoPisc').classList.remove('show')
-				document.getElementById('pnlCodigoProp').classList.remove('show')
-				menuLateral.classList.remove('mostrar')	
-			});
-			});
-			document.getElementById('xxPi').addEventListener('click', function() {
-				document.getElementById('pnlCodigoPisc').classList.add('show')
-				menuLateral.classList.remove('mostrar')				
-			})
-			xx.addEventListener('click', function() {
-				document.getElementById('pnlCodigoProp').classList.add('show')
-				document.getElementById('pnlCasa').classList.remove('show')
-				menuLateral.classList.remove('mostrar')				
-			})
-			const pgPrinc = document.getElementById("pgPrinc");
-			btnMenu.addEventListener('click', async function() {
-				menuLateral.classList.toggle('mostrar')
-				const proprietario = document.getElementById("prop")
-				const piscineiro = document.getElementById("pisc")
-				const { data: dados, error} = await banco
-					.from("Perfis")
-					.select("tipodeperfil")
-
-					if (error) {
-						console.error("Erro ao carregar perfil:", error);
-						return;
-					}
-
-					if (dados) {
-						console.log(dados[0]["tipodeperfil"])
-						if (dados[0]["tipodeperfil"] == "proprietario"){
-							proprietario.classList.add('show')
-						}
-						else if (dados[0]["tipodeperfil"] == "piscineiro"){
-							piscineiro.classList.add('show')
-							piscineiro.style.position = "relative"
-							piscineiro.style.bottom = "380px"
-						}
-					}
-			})
-
-			botaoAdicionarCasa.addEventListener("click", async function () {
-			  const nome = campoNomeDaCasa.value.trim();
-
-			  if (nome === "") {
-				statusDaCasa.textContent = "Digite o nome da casa.";
-				return;
-			  }
-			  
-			 const { data, error: erroUsuario } = await banco.auth.getUser();
-			 if (erroUsuario || !data.user) {
-			   statusDaCasa.textContent = "Você precisa estar logado para adicionar uma casa.";
-			   console.error("Erro ao identificar a conta:", erroUsuario);
-			   return;
-			 }
-			 const { error: erroInsercao } = await banco
-			  .from("Casas")
-			  .insert({
-				casa: nome,
-				proprietario: data.user.id,
-				piscineiro: null
-			  });
-			  
-			if (erroInsercao) {
-			  statusDaCasa.textContent = "Não foi possível adicionar a casa.";
-			  console.error("Erro ao adicionar casa:", erroInsercao);
-			  return;
-			}
-			
-			statusDaCasa.textContent = `Casa "${nome}" adicionada.`;
-			campoNomeDaCasa.value = "";
-
-			await carregarCasasDisponiveis();
-			
-			});
-			
-		    botaoGerarConvite.addEventListener("click", async function () {
-			  const idCasa = seletorCasaConvite.value;
-
-			  if (!idCasa) {
-				statusConvite.textContent = "Selecione uma casa.";
-				return;
-			  }
-
-			  statusConvite.textContent = "Gerando convite...";
-
-			  const { data: codigo, error } = await banco.rpc("criar_convite", {
-				p_id_casa: idCasa
-			  });
-
-			  if (error) {
-				console.error("Erro ao criar convite:", error);
-				statusConvite.textContent = "Não foi possível criar o convite: " + error.message;
-				return;
-			  }
-
-			  statusConvite.textContent =
-				`Convite: ${codigo} — válido por 24 horas. Compartilhe esse código com o piscineiro.`;
-			});
-			
-			botaoAceitarConvite.addEventListener("click", async function () {
-			  const codigo = campoCodigoConvite.value.trim();
-
-			  if (!codigo) {
-				statusAceitarConvite.textContent = "Digite o código do convite.";
-				return;
-			  }
-
-			  statusAceitarConvite.textContent = "Verificando convite...";
-
-			  const { data: mensagem, error } = await banco.rpc("aceitar_convite", {
-				p_codigo: codigo
-			  });
-
-			  if (error) {
-				console.error("Erro ao aceitar convite:", error);
-				statusAceitarConvite.textContent =
-				  "Não foi possível aceitar o convite: " + error.message;
-				return;
-			  }
-
-			  statusAceitarConvite.textContent = mensagem;
-			  campoCodigoConvite.value = "";
-
-			  await carregarCasasDisponiveis();
-			});
-
-			async function garantirPerfil(conta, tipoSelecionado = null) {
-			  const nomePerfil =
-				conta.user_metadata?.nome ||
-				conta.email?.split("@")[0] ||
-				"";
-
-			  const tipoPerfil =
-				conta.user_metadata?.tipodeperfil ||
-				tipoSelecionado;
-
-			  if (!tipoPerfil) {
-				return "Selecione o tipo do perfil para concluir a criação do perfil.";
-			  }
-
-			  if (!conta.user_metadata?.tipodeperfil) {
-				const { error } = await banco.auth.updateUser({
-				  data: {
-					nome: nomePerfil,
-					tipodeperfil: tipoPerfil
-				  }
-				});
-
-				if (error) {
-				  return "Não foi possível salvar o tipo do perfil: " + error.message;
-				}
-			  }
-
-			  const { data: perfil, error: erroBusca } = await banco
-				.from("Perfis")
-				.select("auth_id")
-				.eq("auth_id", conta.id)
-				.maybeSingle();
-
-			  if (erroBusca) {
-				return "Não foi possível verificar o perfil: " + erroBusca.message;
-			  }
-
-			  if (!perfil) {
-				const { error: erroInsercao } = await banco
-				  .from("Perfis")
-				  .insert({
-					auth_id: conta.id,
-					nome: nomePerfil,
-					tipodeperfil: tipoPerfil
-				  });
-
-				if (erroInsercao) {
-				  return "Não foi possível salvar o perfil: " + erroInsercao.message;
-				}
-			  }
-
-			  return null;
-			}
-			const botoesX = [
-				document.getElementById("sair"),
-				document.getElementById("sairPi")
-			];
-			botoesX.forEach(botao => {
-			botao.addEventListener("click", async function () {
-			const { error } = await banco.auth.signOut();
-
-			  if (error) {
-				console.error("Erro ao deslogar:", error);
-				return;
-			  }
-
-			  localStorage.removeItem("loginEfetuado");
-			  location.reload();
-			});
-			});
-
-			let loginRealizado = "";
-			let user = document.getElementById("user");
-			user.textContent = "";
-
-			const { data: { session }, error } = await banco.auth.getSession();
-
-			if (error) {
-			  console.error("Erro ao verificar a sessão:", error);
-			}
-
-			if (session) {
-			  const nome =
-				session.user.user_metadata?.nome ||
-				session.user.email.split("@")[0];
-
-			  user.textContent = nome;
-			  localStorage.setItem("loginEfetuado", nome);
-
-			  const tipoRadio = document.querySelector('input[name="check"]:checked');
-			  const erroPerfil = await garantirPerfil(
-				session.user,
-				tipoRadio?.value
-			  );
-
-			  if (erroPerfil) {
-				console.error(erroPerfil);
-			  }
-			  await carregarCasasDisponiveis();
-			} else {
-			  painelLogin.classList.add("show");
-			}
-			cadastro.addEventListener('click', function() {
-				pnlCadatsro.classList.add('show')
-				painelLogin.classList.remove("show");
-			});
-			
-			voltar.addEventListener('click', function() {
-				pnlCadatsro.classList.remove("show");
-			});
-			
-			elogin.addEventListener('click', function() {
-				painelLogin.classList.add("show");
-				pnlCadatsro.classList.remove("show");
-			})
-
-
-			const entrar = document.getElementById("entrar");
-			const criarConta = document.getElementById("criarConta");
-
-			entrar.addEventListener("click", async function () {
-			  const email = document.getElementById("inputCad").value.trim();
-			  const senha = document.getElementById("senhaCad").value;
-			  const painel = document.getElementById("loginSit");
-			  const { data, error } = await banco.auth.signInWithPassword({
-				email,
-				password: senha
-			  });
-
-			  if (error) {
-				painel.textContent = "E-mail ou senha incorretos.";
-				console.error(error);
-				return;
-			  }
-
-			  const nome =
-				data.user.user_metadata?.nome ||
-				document.getElementById("nomeInput").value.trim() ||
-				data.user.email.split("@")[0];
-
-			  const tipoRadio = document.querySelector('input[name="check"]:checked');
-			  const erroPerfil = await garantirPerfil(
-				data.user,
-				tipoRadio?.value
-			  );
-
-			  if (erroPerfil) {
-				painel.textContent = erroPerfil;
-				console.error(erroPerfil);
-				return;
-			  }
-
-			  localStorage.setItem("loginEfetuado", nome);
-			  user.textContent = nome;
-			  painelLogin.classList.remove("show");
-			});
-
-			criarConta.addEventListener("click", async function () {
-			  const nome = document.getElementById("nomeInput").value.trim();
-			  const email = document.getElementById("input").value.trim();
-			  const senha = document.getElementById("senha").value;
-			  const painelCadastro = document.getElementById("cadastroSit");
-			  const tipoSelecionado =
-				document.querySelector('input[name="check"]:checked');
-
-			  if (!nome || !email || !senha || !tipoSelecionado) {
-				painelCadastro.textContent =
-				  "Preencha nome, e-mail, senha e tipo de conta para criar a conta.";
-				return;
-			  }
-
-			  const tipo = tipoSelecionado.value;
-
-			  const { data, error } = await banco.auth.signUp({
-				email,
-				password: senha,
-				options: {
-				  emailRedirectTo:
-					"https://guilhermecollisoares10-web.github.io/Controle-de-piscina/",
-				  data: {
-					nome: nome,
-					tipodeperfil: tipo
-				  }
-				}
-			  });
-
-			  if (error) {
-				painelCadastro.textContent =
-				  "Não foi possível criar a conta: " + error.message;
-				console.error(error);
-				return;
-			  }
-
-			  if (data.session) {
-				const erroPerfil = await garantirPerfil(data.user, tipo);
-
-				if (erroPerfil) {
-				  painelCadastro.textContent =
-					"Conta criada, mas não foi possível salvar o perfil: " + erroPerfil;
-				  console.error(erroPerfil);
-				  return;
-				}
-
-				localStorage.setItem("loginEfetuado", nome);
-				user.textContent = nome;
-				painelCadastro.textContent = "Conta criada.";
-				painelLogin.classList.remove("show");
-			  } else {
-				painelCadastro.textContent =
-				  "Conta criada. Confirme o e-mail e depois entre com sua conta.";
-			  }
-			});
-
-			const button = document.button;
-			const body = document.body;
-			const btnd = document.getElementById("btndk");
-			const btnl = document.getElementById("btnlg");
-			const con = document.getElementById("cont");
-			//const selPesq  = document.getElementById('selPesq');
-			//const btnp  = document.getElementById('pesqui');
-			//const genero  = document.getElementById('selectFormal');
-			//const pesquisa  = document.getElementById('pesquisa');
-
-			document.getElementById("add").addEventListener('click', function() {
-			document.getElementById("pnlCasa").classList.add('show');
-			document.getElementById("pnlCodigoProp").classList.remove('show');
-			menuLateral.classList.remove('mostrar')
-			});
-			
-		async function mostrarJogosNaBiblioteca(idCasa, dia) {
-		const painel = document.getElementById("painel");
-		painel.replaceChildren();
-
-		let consulta = banco
-			.from("Controle de Piscina")
-			.select("*")
-			.order("dia", { ascending: false });
-
-		if (idCasa && dia) {
-			consulta = consulta.eq("id_casa", idCasa)
-			consulta = consulta.eq("dia", dia);
-		}
-
-		const { data: registros, error } = await consulta;
-
-		if (error) {
-			console.error("Erro ao carregar os registros:", error);
-			return;
-		}
-
-		for (const registro of registros) {
-			const cartao = document.createElement("div");
-			cartao.className = "jg1";
-
-			const dia = document.createElement("div");
-			dia.className = "nm1";
-			dia.textContent = registro.dia;
-
-			const link = document.createElement("a");
-			link.href =
-			`Controle_dia.html?dia=${encodeURIComponent(registro.dia)}`;
-
-			const imagem = document.createElement("img");
-			imagem.src = registro.codigo ||
-			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSka65kV9IPeZQ8e5s3lATdqYM_XN-84ljKGS4pL6UvIQ&s=10";
-			imagem.alt = `Abrir registro do dia ${registro.dia}`;
-			imagem.style.width = "13vw";
-			imagem.style.height = "11vw";
-			imagem.style.borderRadius = "11px";
-
-			link.appendChild(imagem);
-			cartao.append(dia, link);
-			painel.appendChild(cartao);
-		}
-		}
-		await carregarSelectCasa();
-		await mostrarJogosNaBiblioteca(selectCasa.value);
-		  });
-		</script>
-
-		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-		<script>
-		  const banco = supabase.createClient(
+	<script src="ScriptPgPrinc.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script>
+			const banco = supabase.createClient(
 			"https://cnpoethknqlrxitzokte.supabase.co",
 			"sb_publishable_qn5fHfjNWyR57ROt8SySrQ_W-IB4Z2w"
-		  );
+		);
 
-		  async function testarBanco() {
+		async function testarBanco() {
 			const { data, error } = await banco
-			  .from("Controle de Piscina")
-			  .select("*");
+				.from("Controle de Piscina")
+				.select("*");
 
 			console.log("Dados:", data);
 			console.log("Erro:", error);
-		  }
+		}
 
-		  testarBanco();
-</script>
+		testarBanco();
+	</script>
 </body>
 </html>

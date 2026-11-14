@@ -366,6 +366,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		document.getElementById("senhaCad").style.color = "green"
 		painelLogin.remove();
 		pnlCadatsro.remove();
+		location.reload()
 	});
 
 	criarConta.addEventListener("click", async function () {
@@ -495,8 +496,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			painel.appendChild(cartao);
 		}
 	}
-	await carregarSelectCasa();
-	await mostrarRegistros(selectCasa.value);
+
 
 
 });

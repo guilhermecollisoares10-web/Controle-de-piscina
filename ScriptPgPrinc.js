@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const campoCodigoConvite = document.getElementById("codigoConvite");
 	const botaoAceitarConvite = document.getElementById("aceitarConvite");
 	const statusAceitarConvite = document.getElementById("conviteAceiteStatus");
-	const voltar = document.getElementById("voltar");
 	const elogin = document.getElementById("elogin");
 	const filtrar = document.getElementById("filtrar");
 	const yy = document.getElementById("yy");
@@ -93,32 +92,29 @@ document.addEventListener("DOMContentLoaded", async function () {
 		listaCasasPi.innerHTML = `Casas disponíveis para ${user.textContent}(Piscineiro): <br> ` + casas.map(casa => casa.casa).join(",<br>");
 
 	}
-	const botoesY = [
-		document.getElementById("yy"),
-		document.getElementById("yyPi")
-	];
-	botoesY.forEach(botao => {
-		botao.addEventListener("click", function () {
+		document.getElementById("yy").addEventListener("click", function () {
 			document.getElementById('pnlCasa').classList.remove('show')
 			document.getElementById('pnlCodigoPisc').classList.remove('show')
 			document.getElementById('pnlCodigoProp').classList.remove('show')
 			menuLateral.classList.remove('mostrar')
+			document.getElementById('pnlCodigoPisc').classList.remove('show')
 		});
-	});
 	document.getElementById('xxPi').addEventListener('click', function () {
 		document.getElementById('pnlCodigoPisc').classList.add('show')
+		document.getElementById('pnlCasa').classList.remove('show')
+		document.getElementById('pnlCodigoProp').classList.remove('show')
 		menuLateral.classList.remove('mostrar')
 	})
 	xx.addEventListener('click', function () {
 		document.getElementById('pnlCodigoProp').classList.add('show')
 		document.getElementById('pnlCasa').classList.remove('show')
 		menuLateral.classList.remove('mostrar')
+		document.getElementById('pnlCodigoPisc').classList.remove('show')
 	})
 	const pgPrinc = document.getElementById("pgPrinc");
 	btnMenu.addEventListener('click', async function () {
 		menuLateral.classList.toggle('mostrar')
 		const proprietario = document.getElementById("prop")
-		const piscineiro = document.getElementById("pisc")
 		const { data: dados, error } = await banco
 			.from("Perfis")
 			.select("tipodeperfil")
@@ -129,16 +125,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 		}
 
 		if (dados) {
-			console.log(dados[0]["tipodeperfil"])
-			if (dados[0]["tipodeperfil"] == "proprietario") {
+
 				proprietario.classList.add('show')
 			}
-			else if (dados[0]["tipodeperfil"] == "piscineiro") {
-				piscineiro.classList.add('show')
-				piscineiro.style.position = "relative"
-				piscineiro.style.bottom = "380px"
-			}
-		}
+
 	})
 
 	botaoAdicionarCasa.addEventListener("click", async function () {
@@ -233,25 +223,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 			conta.email?.split("@")[0] ||
 			"";
 
-		const tipoPerfil =
-			conta.user_metadata?.tipodeperfil ||
-			tipoSelecionado;
-
-		if (!tipoPerfil) {
-			return "Selecione o tipo do perfil para concluir a criação do perfil.";
-		}
 
 		if (!conta.user_metadata?.tipodeperfil) {
 			const { error } = await banco.auth.updateUser({
 				data: {
 					nome: nomePerfil,
-					tipodeperfil: tipoPerfil
 				}
 			});
 
-			if (error) {
-				return "Não foi possível salvar o tipo do perfil: " + error.message;
-			}
 		}
 
 		const { data: perfil, error: erroBusca } = await banco
@@ -270,7 +249,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 				.insert({
 					auth_id: conta.id,
 					nome: nomePerfil,
-					tipodeperfil: tipoPerfil
 				});
 
 			if (erroInsercao) {
@@ -280,12 +258,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		return null;
 	}
-	const botoesX = [
-		document.getElementById("sair"),
-		document.getElementById("sairPi")
-	];
-	botoesX.forEach(botao => {
-		botao.addEventListener("click", async function () {
+		document.getElementById("sair").addEventListener("click", async function () {
 			const { error } = await banco.auth.signOut();
 
 			if (error) {
@@ -296,10 +269,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 			localStorage.removeItem("loginEfetuado");
 			location.reload();
 		});
-	});
 
 	let loginRealizado = "";
 	let user = document.getElementById("user");
+	let account = document.getElementById("account");
+	account.textContent = "Visitante"
+	let initials = document.getElementById("initials");
+	initials.textContent = "VI"
 	user.textContent = "";
 
 	const { data: { session }, error } = await banco.auth.getSession();
@@ -313,13 +289,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 			session.user.user_metadata?.nome ||
 			session.user.email.split("@")[0];
 
+		initials.textContent = nome[0]+nome[1].toUpperCase()
 		user.textContent = nome;
+		account.textContent = nome;
 		localStorage.setItem("loginEfetuado", nome);
 
-		const tipoRadio = document.querySelector('input[name="check"]:checked');
 		const erroPerfil = await garantirPerfil(
 			session.user,
-			tipoRadio?.value
 		);
 
 		if (erroPerfil) {
@@ -332,10 +308,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 	cadastro.addEventListener('click', function () {
 		pnlCadatsro.classList.add('show')
 		painelLogin.classList.remove("show");
-	});
-
-	voltar.addEventListener('click', function () {
-		pnlCadatsro.classList.remove("show");
 	});
 
 	elogin.addEventListener('click', function () {
@@ -357,6 +329,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 		});
 
 		if (error) {
+			document.getElementById("inputCad").style.border = "3px solid red"
+			document.getElementById("inputCad").style.color = "red"
+			document.getElementById("senhaCad").style.border = "3px solid red"
+			document.getElementById("senhaCad").style.color = "red"
 			painel.textContent = "E-mail ou senha incorretos.";
 			console.error(error);
 			return;
@@ -381,6 +357,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		localStorage.setItem("loginEfetuado", nome);
 		user.textContent = nome;
+		document.getElementById("inputCad").style.border = "3px solid green"
+		document.getElementById("senhaCad").style.border = "3px solid green"
+		document.getElementById("inputCad").style.color = "green"
+		document.getElementById("senhaCad").style.color = "green"
 		painelLogin.classList.remove("show");
 	});
 
@@ -389,16 +369,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 		const email = document.getElementById("input").value.trim();
 		const senha = document.getElementById("senha").value;
 		const painelCadastro = document.getElementById("cadastroSit");
-		const tipoSelecionado =
-			document.querySelector('input[name="check"]:checked');
 
-		if (!nome || !email || !senha || !tipoSelecionado) {
+		if (!nome || !email || !senha) {
 			painelCadastro.textContent =
-				"Preencha nome, e-mail, senha e tipo de conta para criar a conta.";
+				"Preencha nome, e-mail e senha para criar a conta.";
+				document.getElementById("nomeInput").style.border = "3px solid red"
+				document.getElementById("input").style.border = "3px solid red"
+				document.getElementById("senha").style.border = "3px solid red"
 			return;
 		}
 
-		const tipo = tipoSelecionado.value;
 
 		const { data, error } = await banco.auth.signUp({
 			email,
@@ -408,7 +388,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 					"https://guilhermecollisoares10-web.github.io/Controle-de-piscina/",
 				data: {
 					nome: nome,
-					tipodeperfil: tipo
 				}
 			}
 		});
@@ -433,6 +412,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 			localStorage.setItem("loginEfetuado", nome);
 			user.textContent = nome;
 			painelCadastro.textContent = "Conta criada.";
+			document.getElementById("nomeInput").style.border = "3px solid green"
+			document.getElementById("input").style.border = "3px solid green"
+			document.getElementById("senha").style.border = "3px solid green"
 			painelLogin.classList.remove("show");
 		} else {
 			painelCadastro.textContent =
@@ -460,23 +442,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 		const painel = document.getElementById("painel");
 		painel.replaceChildren();
 
+		if (!idCasa && !dia) {
+			document.getElementById("inicial").hidden = false;
+			document.getElementById("vazio").hidden = true;
+			return;
+		}
+
 		let consulta = banco
 			.from("Controle de Piscina")
 			.select("*")
 			.order("dia", { ascending: false });
 
-		if (idCasa && !dia) {
-			consulta = consulta.eq("id_casa", idCasa)
-		}
-
-		if (!idCasa && dia) {
-			consulta = consulta.eq("dia", dia);
-		}
-
-		if (idCasa && dia) {
-			consulta = consulta.eq("id_casa", idCasa)
-			consulta = consulta.eq("id_casa", idCasa)
-		}
+		if (idCasa) consulta = consulta.eq("id_casa", idCasa);
+		if (dia) consulta = consulta.eq("dia", dia);
 
 		const { data: registros, error } = await consulta;
 
@@ -484,6 +462,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.error("Erro ao carregar os registros:", error);
 			return;
 		}
+
+		document.getElementById("inicial").hidden = true;
+		document.getElementById("vazio").hidden = registros.length > 0;
 
 		for (const registro of registros) {
 			const cartao = document.createElement("div");

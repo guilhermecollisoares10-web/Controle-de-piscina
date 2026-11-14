@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 	<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
 	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=home,logout,search,text_select_jump_to_end,add,start&display=block">
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=chevron_right,search_off,note_add,close,water_drop,home,logout,search,key,text_select_jump_to_end,add,mail&display=block">
+	
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -35,112 +36,152 @@
 		
 	</style>
 
-<body id="body">
-	<button style="position: relative; z-index: 900000000001;" id="menu">Menu Lateral</button>
+<body id="body" style="margin: 0;">
+<button style="position: fixed; z-index: 900000000001; height: 80px; width: 70px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 15px;border-radius: 15px;border: none;margin: 20px 0 0 10px;background-color: #ffffff;" id="menu">
+	<span style="display:block; height:4px; background:#0b6b73;"></span>
+	<span style="display:block; height:4px; background:#0b6b73;"></span>
+	<span style="display:block; height:4px; background:#0b6b73;"></span>
+</button>
 
 	<!--Menus Secundários-->
 
 	<div class="sideBar" id="mnLat">
-		<button style="position: absolute;top:-40px;left:0;background-color: #c9d1d3;border-radius: 12px;padding: 10px;"
-			onclick="document.getElementById('mnLat').classList.remove('mostrar')">Fechar</button>
-		<h1 style="color: black;text-decoration: underline;font-size: 70px;">Menu</h1>
-		<div class="teste" style="display: flex;flex-direction: column;" id="prop">
-			<h1 style="color: black;font-size: 50px;">Proprietário</h1>
-			<div class="tstBtn" style="display: flex;flex-direction: column; align-items:  flex-start;">
-				<button id="sair" class="btnSai" type="button"><span class="material-symbols-outlined">logout</span>
-					Deslogar</button>
-				<button id="add" class="btnAdd" type="button"><span class="material-symbols-outlined">home</span> Criar
-					casa</button>
-				<button id="xx" class="btnSai" type="button"><span class="material-symbols-outlined">start</span> Gerar
-					código</button>
-				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;"
-						href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar
-						Registro</button></a>
-				<button id="yy" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>
-					Pesquisa</button>
+		<button style="position: absolute;top:-80px;left:0;background-color: #ffffff;border-radius: 12px;padding: 15px;"
+			onclick="document.getElementById('mnLat').classList.remove('mostrar')"><span style="color: #0b6b73;font-size: 40px;" class="material-symbols-outlined">close</span></button>
+		<header style="display: flex; flex-direction: column;background-color: #0B6E7C;height: 500px;width: 100%;">
+			<div style="display: flex;position: relative;top: 130px;left: 80px;gap: 30px;align-items: center;">
+				<div id="initials" style="font-size: 50px; font-weight: 600;display: flex;background-color: rgba(255,255,255,0.14); color: white;border-radius: 50%;width: 150px;height: 150px;align-items: center;justify-content: center;">
 			</div>
-		</div>
+				<p id="account"style="color: white; font-weight: 600;font-size: 55px;"></p>
+			</div>
+						<h1 style="position: relative; left: 50px; top: 140px;color: black;font-weight: 600;font-size: 70px;">Menu</h1>
+		</header>
+		<svg viewBox="0 0 390 40" preserveAspectRatio="none" style="display:block; width:100%; height:100px;">
+		<path d="M0,20 C100,50 250,-10 390,20 L390,0 L0,0 Z" fill="#1a5a63"></path>
+		</svg>
 
-		<div class="teste" style="display: flex;flex-direction: column;" id="pisc">
-			<h1 style="color: black;font-size: 50px;">Piscineiro</h1>
-			<div class="tstBtn" style="display: flex;flex-direction: column; align-items:  flex-start;">
-				<button id="sairPi" class="btnSai" type="button"><span class="material-symbols-outlined">logout</span>
-					Deslogar</button>
-				<button id="xxPi" class="btnSai" type="button"><span
-						class="material-symbols-outlined">text_select_jump_to_end</span> Receber código</button>
-				<button type="button" class="btnAdd" style="text-decoration: ;"><a style="color: blue;"
-						href="Adicionar_informação.html"><span class="material-symbols-outlined">add</span>Adicionar
-						Registro</button></a>
-				<button id="yyPi" class="btnAdd" type="button"><span class="material-symbols-outlined">search</span>
-					Pesquisa</button>
+		<div class="teste" style="display: flex;flex-direction: column;" id="prop">
+			<p style="position: relative;right: 290px;top: 60px;font-weight: 550;">AÇÕES</p>
+			<div class="tstBtn" style="display: flex; flex-direction: column; align-items:  flex-start;margin-top: 50px;">
+
+				<button style="border-radius: 15px 15px 0 0;display: flex;flex-direction: row;gap :20px;align-items: center;" id="add" class="btnAdd" type="button"><div style="display: flex; align-items: center; ; height: 100px, width: 100px;border-radius: 15px; padding: 25px;background-color: #629eda3b; margin-right: 10px"><span style="font-size: 45px" class="material-symbols-outlined">home</span></div>
+					 Criar casa <span style="margin-left: 390px;font-size: 40px" class="material-symbols-outlined">chevron_right</span></button>
+				
+				 <button style="display: flex;gap :20px;align-items: center;" id="xx" class="btnSai" type="button"><div style="display: flex; align-items: center;height: 100px, width: 100px;border-radius: 15px; padding: 25px;background-color: #629eda3b; margin-left: 5px"><span style="font-size: 45px;" class="material-symbols-outlined">key</span></div> 
+					Gerar código <span style="margin-left: 370px;font-size: 40px" class="material-symbols-outlined">chevron_right</span></button>
+				
+				<button style="display: flex;gap :20px;align-items: center;" id="xxPi" class="btnSai" type="button"><div style="display: flex; align-items: center;height: 100px, width: 100px;border-radius: 15px; padding: 25px;background-color: #629eda3b; margin-left: -5px"><span style="font-size: 45px;" class="material-symbols-outlined">mail</span></div> 
+					Receber código <span style="margin-left: 330px;font-size: 40px" class="material-symbols-outlined">chevron_right</span></button>	
+				
+				<button style="display: flex;gap :20px;align-items: center;" class="btnSai" type="button"><div style="display: flex; align-items: center;height: 100px, width: 100px;border-radius: 15px; padding: 25px;background-color: #629eda3b; margin-left: 0px"><span style="font-size: 45px;" class="material-symbols-outlined">note_add</span></div> 
+					<a style="color: black; text-decoration: none;" href="Adicionar_informação.html">Adicionar Registro</a> <span style="margin-left: 330px;font-size: 40px" class="material-symbols-outlined">chevron_right</span></button>	
+				
+				<button style="border-radius: 0 0 15px 15px;display: flex;gap :20px;align-items: center;" id="yy" class="btnSai" type="button"><div style="display: flex; align-items: center;height: 100px, width: 100px;border-radius: 15px; padding: 25px;background-color: #629eda3b; margin-left: -5px"><span style="font-size: 45px;" class="material-symbols-outlined">search</span></div> 
+					Pesquisa <span style="margin-left: 330px;font-size: 40px" class="material-symbols-outlined">chevron_right</span></button>	
+				
 			</div>
+			<button id="sair" style="display: flex; align-items: center;justify-content: center; margin-top: 400px; width: 100%; height: 100px;border-radius: 15px; border-color: rgb(126, 18, 18);padding: 60px; background-color: white;color: rgb(126, 18, 18);font-size: 45px;font-weight: 550;" class="btnSai" type="button"><span style="font-size: 40px;margin-right: 20px;font-weight: 600;" class="material-symbols-outlined">logout</span>
+			Sair da conta</button>
 		</div>
+				
+
 	</div>
 
 	<div class="login" id="login">
-
+		<header style="display: flex; flex-direction: column;background-color: #0B6E7C;height: 500px;">
+			<div style="display: flex;position: relative;top: 130px;left: 80px;gap: 30px;align-items: center;">
+				<div style="display: flex;background-color: rgba(255,255,255,0.14); color: white;border-radius: 15px;width: 100px;height: 100px;align-items: center;justify-content: center;"><span style="font-size: 50px;font-weight: 500;" class="material-symbols-outlined">
+			water_drop
+			</span>
+			</div>
+				<p style="color: white; font-weight: 600;font-size: 44px;">AquaControle</p>
+			</div>
+			<p style="color: white;line-height: 1.2; font-weight: 600; letter-spacing: -0.02e;position: relative;font-size: 54px;top: 80px;left: 10px;">Sua piscina sob controle, de qualquer lugar.</p>
+		</header>
+		<svg viewBox="0 0 390 40" preserveAspectRatio="none" style="display:block; width:100%; height:100px;">
+		<path d="M0,20 C100,50 250,-10 390,20 L390,0 L0,0 Z" fill="#1a5a63"></path>
+		</svg>
 		<h1
-			style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 450px;top: 20px;width: 400px;height: 50px">
-			Login</h1>
+			style="color: black;font-size: 6vw;position: relative;font-weigth: 800;left: 80px;top: 20px;width: 400px;height: 50px">
+			Entrar</h1>
 		<div class="loginSenha">
 
 
-			<label style="font-size: 40px;" for="inputCad">Email:</label>
-			<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="inputCad"
-				placeholder="Digite seu e-mail"><br>
-			<label style="font-size: 40px;" for="senhaCad">Senha:</label>
-			<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senhaCad"
+			<label style="font-size: 30px;position: relative;right: 20px;" for="inputCad">Email:</label>
+			<input style="font-size: 30px;margin-bottom: 30px;padding: 30px;" type="email" id="inputCad"
+				placeholder="email@exemplo.com"><br>
+			<label style="font-size: 30px;position: relative;right: 20px;" for="senhaCad">Senha:</label>
+			<input style="font-size: 30px;margin-bottom: 30px;padding: 30px;" type="password" id="senhaCad"
 				placeholder="Digite sua senha">
+			<form style="display: flex;position: relative; top: 50px; justify-content: space-between;">
+				    <label style="display: flex; align-items: center; gap: 8px; font-size: 30px; color: #2C454D; min-height: 44px">
+       					<input type="checkbox" style="width: 18px; height: 18px; margin: 0; accent-color: #0B6E7C">
+        				Manter conectado
+      				</label>
+				<button style="color: #292c37;font-weight: 650;border:none;background-color: white;">Esqueci a senha</button>
+			
 		</div>
-
-
+		</form>
+		<footer>
 		<div style="position:relative; top: 90px;right: 1%;">
 			<button id="entrar"
-				style="font-size: 40px;position: relative;left: 450px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Entrar</button>
+				style="font-weight: 600; font-size: 40px;position: relative;left: 50px;top: 50px;background-color: #0B6E7C;color: white;border-radius: 15px;border: none;padding: 35px;width:90%;">Entrar</button>
 
-			<p style="position: relative; top: 40px;margin: 40px;color: black;"><span id="loginSit"
+			<p style="position: relative; top: 100px;left: 15%; margin: 40px;color: black;"><span id="loginSit"
 					style="font-size: 50px;"></span></p>
 		</div>
+			
+		<div style="display: flex; position: relative;top: 300px;left: 160px;">
+		<p style="font-weight:500 ;font-size: 40px;">Ainda não tem conta?</p>
 		<button id="pagCadastro"
-			style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;">Cadastrar</button>
-
+			style="font-weight: 700;font-size: 40px;text-decoration: underline;background-color: white;color: #292c37; border: none;">Cadastre-se</button>
+		</div>
+		</footer>
 	</div>
 
 	<div class="login" id="pnlCadatsro">
+		<header style="display: flex; flex-direction: column;background-color: #0B6E7C;height: 500px;">
+			<div style="display: flex;position: relative;top: 130px;left: 80px;gap: 30px;align-items: center;">
+				<div style="display: flex;background-color: rgba(255,255,255,0.14); color: white;border-radius: 15px;width: 100px;height: 100px;align-items: center;justify-content: center;"><span style="font-size: 50px;font-weight: 500;" class="material-symbols-outlined">
+			water_drop
+			</span>
+			</div>
+				<p style="color: white; font-weight: 600;font-size: 44px;">AquaControle</p>
+			</div>
+			<p style="color: white;line-height: 1.2; font-weight: 600; letter-spacing: -0.02e;position: relative;font-size: 54px;top: 80px;left: 10px;">Sua piscina sob controle, de qualquer lugar.</p>
+		</header>
+		<svg viewBox="0 0 390 40" preserveAspectRatio="none" style="display:block; width:100%; height:100px;">
+		<path d="M0,20 C100,50 250,-10 390,20 L390,0 L0,0 Z" fill="#1a5a63"></path>
+		</svg>
 		<h1
-			style="text-decoration: underline;color: black;font-size: 5vw;position: relative;left: 300px;top: 20px;width: 400px;height: 50px">
+			style="color: black;font-size: 6vw;position: relative;font-weigth: 800;left: 80px;top: 20px;width: 400px;height: 50px">
 			Cadastro</h1>
 		<div class="loginSenha">
 
-			<label style="font-size: 40px;" for="nomeInput">Digite o Nome:</label>
-			<input style="font-size: 40px;margin-bottom: 30px;" type="text" id="nomeInput"
+			<label style="position: relative;right: 20px;font-size: 30px;" for="nomeInput">Digite o Nome:</label>
+			<input style="font-size: 30px;margin-bottom: 30px;padding: 30px;" type="text" id="nomeInput"
 				placeholder="Digite o Nome"><br>
-			<label style="font-size: 40px;" for="input">Digite o email:</label>
-			<input style="font-size: 40px;margin-bottom: 30px;" type="email" id="input"
+			<label style="position: relative;right: 20px;font-size: 30px;" for="input">Digite o email:</label>
+			<input style="font-size: 30px;margin-bottom: 30px;padding: 30px;" type="email" id="input"
 				placeholder="Digite o e-mail"><br>
-			<label style="font-size: 40px;" for="senha">Senha:</label>
-			<input style="font-size: 40px;margin-bottom: 30px;" type="password" id="senha"
+			<label style="position: relative;right: 20px;font-size: 30px;"for="senha">Senha:</label>
+			<input style="font-size: 30px;margin-bottom: 30px;padding: 30px;" type="password" id="senha"
 				placeholder="Digite sua senha">
 		</div>
-
-		<div style="font-size: 50px;position:relative; top: 90px; left: 1%;">
-			<p style="font-size: 50px;color: black;">Selecione o tipo da conta:</p>
-			<input value="piscineiro" type="radio" name="check">Piscineiro</input>
-			<input value="proprietario" type="radio" name="check">Proprietario</input>
-		</div>
-
 		<div style="position:relative; top: 90px;right: 1%;">
 			<button id="criarConta"
-				style="font-size: 40px;position: relative;left: 430px;top: 50px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Criar
+				style="font-weight: 600; font-size: 40px;position: relative;left: 50px;top: 50px;background-color: #0B6E7C;color: white;border-radius: 15px;border: none;padding: 35px;width:90%;">Criar
 				conta</button>
 			<p style="position: relative; top: 40px;margin: 30px;color: black"><span
 					style="color: black;font-size: 50px" id="cadastroSit"></span></p>
 		</div>
+		<div style="display: flex; position: relative;top: 300px;left: 270px;">
+		<p style="font-weight:500 ;font-size: 40px;">Já tem conta?
 		<button id="elogin"
-			style="font-size: 40px;position: relative;top: 150px;left: 420px;text-decoration: underline;background-color: white; border: none;">Login</button>
-		<button id="voltar"
-			style="font-size: 40px;position: relative;top: 150px;left: 426px;text-decoration: underline;background-color: white; border: none;">Sair</button>
-
+			style="font-weight: 700;font-size: 40px;text-decoration: underline;background-color: white;color: #292c37; border: none;">Entrar</button>
+		</p>
+		</div>
+		
 
 	</div>
 
@@ -202,40 +243,53 @@
 	<!--Fim Menus Secundários-->
 
 	<div id="pgPrinc" class="menu">
+		<header style="display: flex; flex-direction: column;background-color: #0B6E7C;height: 500px;">
+		<div style="display: flex;position: relative;top: 130px;gap: 30px;align-items: center;">
+		<div style="display: flex;background-color: rgba(255,255,255,0.14); color: white;border-radius: 15px;margin-left: 80px;width: 100px;height: 100px;align-items: center;justify-content: center;"><span style="font-size: 50px;font-weight: 500;" class="material-symbols-outlined">
+		water_drop
+		</span>
+		</div>
+			<p style="color: white; font-weight: 600;font-size: 44px;">AquaControle</p>
+		</div>
+		<p style="color: white;line-height: 1.2; font-weight: 600; letter-spacing: -0.02e;position: relative;font-size: 54px;top: 80px;margin-left: 50px;">Sua piscina sob controle, de qualquer lugar.</p>
+		</header>
+		<svg viewBox="0 0 390 40" preserveAspectRatio="none" style="display:block; width:100%; height:100px;">
+		<path d="M0,20 C100,50 250,-10 390,20 L390,0 L0,0 Z" fill="#1a5a63"></path>
+		</svg>
 
-
-		<h1  style="font-size: 60px;" class="bar">
+		<!--<h1  style="font-size: 60px;" class="bar">
 			Controle de Piscina
-		</h1>
+		</h1>-->
 
 		<!--	<div class="est"><a style="font-size: 1vw;" href="Estatísticas_piscina.html"><button class="btne" style="font-size: 25px;">Estatísticas</button></a></div>-->
 
-
+		<h2 style="text-align: center;font-size: 40px;font-weight: 600;margin-top: 50px;">Olá,  <span id="user"
+				style="font-style:italic; font-size: 45px;"></span>. Consulte as medições de uma casa por dia.</h2>
 
 		<div class="mencont">
-			<button class="color"><select class="sel" id="selCasa"
-					style="border: 1px black solid; width: 300px;"></select></button>
-			<button style="margin-left: 30px; " class="color"><label for="dia">Filtrar por dia:</label><input id="dia"
+			<button class="color"><label style="margin-right: 650px;margin-bottom: 20px;" for="selCasa">Casa</label><br><select class="sel" id="selCasa"
+					style="border: 1px black solid;"></select></button>
+			<button class="color"><label style="margin-right: 650px;margin-bottom: 20px;" for="dia">Dia</label><br><input style="width: 93%;height: 60px;padding: 25px;font-weight: 600;font-size: 4vw;" id="dia"
 					type="date"></button>
-			<button id="filtrar" class="color"
-				style="font-size: 40px;position: relative;left: 30px;background-color: #292c37;color: white;border-radius: 12px;border: none;padding: 20px;">Filtrar</button>
+			<button id="filtrar" class="color" type="submit"
+				style="font-size: 40px;position: relative;background-color: #292c37;color: whitesmoke;border-radius: 12px;border: none;padding: 20px;"><span style="font-size: 45px;margin-right: 10px;" class="material-symbols-outlined">search</span> Filtrar</button>
 		</div>
 
-
-	</div>
-
-	<div style="position: relative;top: 16vw"> 
-
-		<h2 style="text-align: center;font-size: 40px;position:relative; top: 20px;">Bem vindo, <span id="user"
-				style="font-style:italic; font-size: 45px;"></span>:</h2>
-
 		<div class="table">
+			<div id="inicial" hidden>
+				<p style="font-size: 45px;font-weight: 600;"> <span style="font-size: 65px;margin-right: 10px;font-weight: 500;" class="material-symbols-outlined">search</span><br> Nenhum Pesquisa ainda <br><span style="font-weight: 200;font-size: 40px;"> Escolha a casa e o dia e toque em Filtrar. </span> </p>
+			</div>
+			<div id="vazio" hidden>
+   			 	<p style="font-size: 45px;font-weight: 600;"> <span style="font-size: 65px;margin-right: 10px;font-weight: 500;" class="material-symbols-outlined">search_off</span> <br>Nenhum registro encontrado. <br> <span style="font-weight: 200;font-size: 40px;"> Registre uma medição e ela aparecerá aqui. </span></p>
+			</div>
 			<div class="table1" id="painel"></div>
 		</div>
 
-		<p>Controle de Piscina, 2026</p>
+		<p style="margin-right: 600px;">AquaControle, 2026</p>
 
 	</div>
+
+
 
 	<script src="ScriptPgPrinc.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

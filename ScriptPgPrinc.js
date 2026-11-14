@@ -302,6 +302,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.error(erroPerfil);
 		}
 		await carregarCasasDisponiveis();
+
+		 painelLogin.remove();
+   		 pnlCadatsro.remove();
 	} else {
 		painelLogin.classList.add("show");
 	}
@@ -361,7 +364,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 		document.getElementById("senhaCad").style.border = "3px solid green"
 		document.getElementById("inputCad").style.color = "green"
 		document.getElementById("senhaCad").style.color = "green"
-		painelLogin.classList.remove("show");
+		painelLogin.remove();
+		pnlCadatsro.remove();
 	});
 
 	criarConta.addEventListener("click", async function () {
